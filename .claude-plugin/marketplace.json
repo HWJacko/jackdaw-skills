@@ -1,0 +1,12 @@
+{
+  "name": "jackdaw-skills",
+  "owner": { "name": "hwjacko" },
+  "description": "Business and product analysis skills for agents: use case extraction, requirement construction, user flows, requirements maps.",
+  "plugins": [
+    {
+      "name": "jackdaw-skills",
+      "source": "./",
+      "description": "Business and product analysis skills for agents: use case extraction, requirement construction, user flows, requirements maps."
+    }
+  ]
+}

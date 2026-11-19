@@ -1,0 +1,4 @@
+# No runtime dependencies for prompt-based skills.
+# JIRA integration skill (requirement-construction-jira) needs:
+requests
+truststore
