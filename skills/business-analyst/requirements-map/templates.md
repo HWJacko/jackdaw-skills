@@ -19,6 +19,8 @@ Type: `mindmap`. One map per project.
 
 - Every node: ID + short name. Never a node without an ID.
 - Use the IDs from the source files. Do not renumber.
+- Link stories through `Source use case:`. Link use cases through their EPIC tables.
+- List IDs with missing source links under `Unmapped items`. Count them as gaps. Do not guess a parent.
 - Gaps: append `(no stories)` or `(empty)`.
 - After the diagram, give a coverage summary: counts and gaps.
 

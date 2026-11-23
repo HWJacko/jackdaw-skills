@@ -19,24 +19,28 @@
         <mxCell id="draft" value="Save as draft" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="340" y="400" width="120" height="40" as="geometry"/>
         </mxCell>
-        <mxCell id="publish" value="Click Publish" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="preview" value="Show preview" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="340" y="480" width="120" height="40" as="geometry"/>
         </mxCell>
+        <mxCell id="publish" value="Click Publish" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="560" width="120" height="40" as="geometry"/>
+        </mxCell>
         <mxCell id="approval" value="Admin approves?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="330" y="560" width="140" height="80" as="geometry"/>
+          <mxGeometry x="330" y="640" width="140" height="80" as="geometry"/>
         </mxCell>
         <mxCell id="live" value="Page live" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="340" y="680" width="120" height="40" as="geometry"/>
+          <mxGeometry x="340" y="760" width="120" height="40" as="geometry"/>
         </mxCell>
         <mxCell id="done" value="End" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="340" y="760" width="120" height="40" as="geometry"/>
+          <mxGeometry x="340" y="840" width="120" height="40" as="geometry"/>
         </mxCell>
         <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="start" target="login"><mxGeometry relative="1" as="geometry"/></mxCell>
         <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="login" target="create"><mxGeometry relative="1" as="geometry"/></mxCell>
         <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="create" target="valid"><mxGeometry relative="1" as="geometry"/></mxCell>
         <mxCell id="e4" value="No" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="valid" target="create"><mxGeometry relative="1" as="geometry"/></mxCell>
         <mxCell id="e5" value="Yes" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="valid" target="draft"><mxGeometry relative="1" as="geometry"/></mxCell>
-        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="draft" target="publish"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="draft" target="preview"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e11" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="preview" target="publish"><mxGeometry relative="1" as="geometry"/></mxCell>
         <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="publish" target="approval"><mxGeometry relative="1" as="geometry"/></mxCell>
         <mxCell id="e8" value="No" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="approval" target="draft"><mxGeometry relative="1" as="geometry"/></mxCell>
         <mxCell id="e9" value="Yes" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="approval" target="live"><mxGeometry relative="1" as="geometry"/></mxCell>

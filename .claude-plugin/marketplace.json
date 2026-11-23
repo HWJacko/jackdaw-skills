@@ -6,6 +6,7 @@
     {
       "name": "jackdaw-skills",
       "source": "./",
+      "skills": ["./skills/business-analyst/"],
       "description": "Business and product analysis skills for agents: use case extraction, requirement construction, user flows, requirements maps."
     }
   ]

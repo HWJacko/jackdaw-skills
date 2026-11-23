@@ -8,6 +8,8 @@
 
 The local ID is not the JIRA key. A JIRA key is added later only if a JIRA connection is available.
 
+Record `Source use case: [PN]UC###` under each story heading. Use `unknown` when the source has no ID.
+
 ## Story format
 
 > As a [stakeholder] I want to be able to [action] so that [outcome]
@@ -28,6 +30,7 @@ Use AND / BUT / OR as needed. One scenario per distinct behaviour.
 
 ```markdown
 ## [PN]US001
+Source use case: [PN]UC001
 As a [stakeholder] I want to be able to [action] so that [outcome]
 
 Scenario 1: [name]

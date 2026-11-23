@@ -2,6 +2,7 @@
 Project ID: NW
 
 ## NWUS001
+Source use case: NWUC001
 As a content editor I want to be able to create a page in the CMS so that I can publish content without developer help
 
 Scenario 1: Editor creates a valid page

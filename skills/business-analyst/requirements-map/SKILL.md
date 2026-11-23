@@ -17,6 +17,8 @@ Show the full requirements structure of a project on one page: EPICs, their use 
 ## Method
 
 1. Read the source files. Build the hierarchy: project → EPIC → use case → user story.
+   - Link each story through its `Source use case:` field. Link use cases through their EPIC tables.
+   - If a source link is absent, unknown, or missing from the input, list the affected ID under `Unmapped items`. Count it as a gap. Do not guess a parent.
 2. Every node shows its ID and a short name. IDs come from the source files — do not invent them.
 3. If a use case has no user stories yet, mark it `(no stories)`. This is a gap, not an error.
 4. If an EPIC has no use cases, mark it `(empty)`.
@@ -42,7 +44,7 @@ If the [diagram-design](https://github.com/cathrynlavery/diagram-design) skill i
 
 ## Voice
 
-Follow the repository default ([voice.md](../../../voice.md)): concise and clear, understandable by business and tech alike.
+Use short, clear sentences. Write for business and technical readers. Define necessary technical terms. Use the template formats and identifiers exactly. State facts and identify assumptions. Remove filler.
 
 ## Templates and examples
 

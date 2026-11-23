@@ -4,16 +4,16 @@ Legend: rounded = start/end, rectangle = action, diamond = decision.
 
 ```mermaid
 flowchart TD
-    start([Start]) --> login[Editor logs in to CMS]
-    login --> create[Create page in editor]
+    start([Start]) --> login[Log in to CMS]
+    login --> create[Create page]
     create --> valid{Title and body present?}
     valid -- No --> create
     valid -- Yes --> draft[Save as draft]
     draft --> preview[Show preview]
-    preview --> publish[Editor clicks Publish]
+    preview --> publish[Click Publish]
     publish --> approval{Admin approves?}
     approval -- No --> draft
-    approval -- Yes --> live[Page live on website]
+    approval -- Yes --> live[Page live]
     live --> done([End])
 ```
 

@@ -20,14 +20,16 @@ Turn one use case into atomic, testable user stories stored in a local file.
 2. Story format: "As a [stakeholder] I want to be able to [action] so that [outcome]".
 3. Each story has one or more scenarios in Gherkin: GIVEN, WHEN, THEN, with AND / BUT / OR as needed.
 4. Each story ends with numbered acceptance criteria: AC1, AC2, ...
-5. IDs: `[PN]US001`, sequential per project. This is a local ID. It is not the JIRA key; JIRA keys are added only when a JIRA connection is available (Requirement Construction II).
+5. IDs: `[PN]US001`, sequential per project. When appending, read the existing IDs and continue after the highest number. This is a local ID. It is not the JIRA key; JIRA keys are added only when a JIRA connection is available (Requirement Construction II).
 6. Each story must be testable on its own. If a story needs another story to make sense, split again.
+7. Record `Source use case: [PN]UC###` under each story heading. Use the source ID. If it is absent, write `Source use case: unknown`. Do not invent an ID.
 
 ## Output
 
 Append to (or create) `output/[PN]-user-stories.md`:
 
 - Story ID and story sentence.
+- Source use case ID, or `unknown` if the source has no ID.
 - One Gherkin block per scenario.
 - Acceptance criteria list.
 
@@ -38,7 +40,7 @@ Append to (or create) `output/[PN]-user-stories.md`:
 
 ## Voice
 
-Follow the repository default ([voice.md](../../../voice.md)): concise and clear, understandable by business and tech alike. Write story content in this voice. Do not discuss voice, language rules, or instruction conflicts in your response — produce the output only.
+Use short, clear sentences. Write for business and technical readers. Define necessary technical terms. Use the template formats and identifiers exactly. State facts and identify assumptions. Remove filler. Write story content in this voice. Do not discuss voice, language rules, or instruction conflicts in your response — produce the output only.
 
 ## Templates and examples
 

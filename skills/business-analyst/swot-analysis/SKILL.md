@@ -37,7 +37,7 @@ One Markdown file `output/[PN]-swot.md`:
 
 ## Voice
 
-Follow the repository default ([voice.md](../../../voice.md)): concise and clear, understandable by business and tech alike.
+Use short, clear sentences. Write for business and technical readers. Define necessary technical terms. Use the template formats and identifiers exactly. State facts and identify assumptions. Remove filler.
 
 ## Templates and examples
 

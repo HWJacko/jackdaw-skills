@@ -37,6 +37,7 @@ Skills then run as `/jackdaw-skills:use-case-extraction`, `/jackdaw-skills:requi
 
 ```bash
 git clone https://github.com/hwjacko/jackdaw-skills.git
+mkdir -p ~/.claude/skills
 cp -r jackdaw-skills/skills/business-analyst/* ~/.claude/skills/
 ```
 
@@ -46,6 +47,7 @@ Or use `<project>/.claude/skills/` for one project only (committable, so the tea
 
 ```bash
 git clone https://github.com/hwjacko/jackdaw-skills.git
+mkdir -p ~/.agents/skills
 cp -r jackdaw-skills/skills/business-analyst/* ~/.agents/skills/
 ```
 
@@ -67,7 +69,18 @@ After install, describe the task in natural language or use the slash command. T
 
 ## Voice
 
-All skills follow [voice.md](voice.md): concise and clear, understandable by business and tech alike. A skill can override it.
+Each skill includes the rules from [voice.md](voice.md). The rules stay available when a skill folder is copied.
+
+## Checks
+
+Run these commands from the repository root:
+
+```bash
+python3 -m pip install -r requirements.txt
+python3 -m unittest discover -s tests -v
+```
+
+The tests check JIRA behavior with simulated responses. They also check plugin paths, skill references, and diagram examples.
 
 ## Roadmap
 
