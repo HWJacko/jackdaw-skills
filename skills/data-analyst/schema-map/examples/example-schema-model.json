@@ -1,0 +1,579 @@
+{
+  "model_version": 1,
+  "project": {
+    "name": "Shop Analytics",
+    "abbreviation": "SA"
+  },
+  "inspection": {
+    "date": "2026-11-23",
+    "dialect": "sqlite",
+    "source_mode": "supplied_schema",
+    "scope": [
+      "main.customers",
+      "main.orders",
+      "main.order_items"
+    ],
+    "limitations": [
+      "Supplied DDL only. No live database or business rows were inspected.",
+      "No SME answers or data-quality checks are available.",
+      "A foreign key declaration does not prove enforcement or valid historical data.",
+      "The supplied schema has no date column for the requested month filter."
+    ]
+  },
+  "evidence": [
+    {
+      "id": "SAEV001",
+      "kind": "ddl",
+      "source": "input-schema.sql:1-6",
+      "detail": "Customer columns and the ordered tenant_id, customer_id primary key."
+    },
+    {
+      "id": "SAEV002",
+      "kind": "ddl",
+      "source": "input-schema.sql:8-16",
+      "detail": "Order columns and primary key. No customer foreign key or date column is declared here."
+    },
+    {
+      "id": "SAEV003",
+      "kind": "ddl",
+      "source": "input-schema.sql:18-25",
+      "detail": "Order item columns, primary key, and ordered composite foreign key to orders."
+    },
+    {
+      "id": "SAEV004",
+      "kind": "brief",
+      "source": "input-brief.md",
+      "detail": "The intended question is paid revenue by customer this month. Users may belong to different tenants."
+    }
+  ],
+  "tables": [
+    {
+      "id": "SATB001",
+      "schema": "main",
+      "name": "customers",
+      "kind": "table",
+      "evidence_ids": [
+        "SAEV001"
+      ],
+      "columns": [
+        {
+          "name": "tenant_id",
+          "data_type": "INTEGER",
+          "nullable": false,
+          "evidence_ids": [
+            "SAEV001"
+          ]
+        },
+        {
+          "name": "customer_id",
+          "data_type": "INTEGER",
+          "nullable": false,
+          "evidence_ids": [
+            "SAEV001"
+          ]
+        },
+        {
+          "name": "display_name",
+          "data_type": "TEXT",
+          "nullable": false,
+          "evidence_ids": [
+            "SAEV001"
+          ]
+        }
+      ],
+      "keys": [
+        {
+          "kind": "primary",
+          "columns": [
+            "tenant_id",
+            "customer_id"
+          ],
+          "evidence_ids": [
+            "SAEV001"
+          ]
+        }
+      ],
+      "meaning": {
+        "text": "Customer records within a tenant.",
+        "status": "assumed",
+        "evidence_ids": [
+          "SAEV001"
+        ],
+        "question_ids": [
+          "SAQ002"
+        ]
+      },
+      "grain": {
+        "text": "One row may represent one current customer within one tenant.",
+        "status": "assumed",
+        "evidence_ids": [
+          "SAEV001"
+        ],
+        "question_ids": [
+          "SAQ002"
+        ]
+      }
+    },
+    {
+      "id": "SATB002",
+      "schema": "main",
+      "name": "orders",
+      "kind": "table",
+      "evidence_ids": [
+        "SAEV002"
+      ],
+      "columns": [
+        {
+          "name": "tenant_id",
+          "data_type": "INTEGER",
+          "nullable": false,
+          "evidence_ids": [
+            "SAEV002"
+          ]
+        },
+        {
+          "name": "order_id",
+          "data_type": "INTEGER",
+          "nullable": false,
+          "evidence_ids": [
+            "SAEV002"
+          ]
+        },
+        {
+          "name": "customer_id",
+          "data_type": "INTEGER",
+          "nullable": false,
+          "evidence_ids": [
+            "SAEV002"
+          ]
+        },
+        {
+          "name": "status",
+          "data_type": "TEXT",
+          "nullable": false,
+          "evidence_ids": [
+            "SAEV002"
+          ]
+        },
+        {
+          "name": "total_minor",
+          "data_type": "INTEGER",
+          "nullable": false,
+          "evidence_ids": [
+            "SAEV002"
+          ]
+        },
+        {
+          "name": "currency_code",
+          "data_type": "TEXT",
+          "nullable": false,
+          "evidence_ids": [
+            "SAEV002"
+          ]
+        }
+      ],
+      "keys": [
+        {
+          "kind": "primary",
+          "columns": [
+            "tenant_id",
+            "order_id"
+          ],
+          "evidence_ids": [
+            "SAEV002"
+          ]
+        }
+      ],
+      "meaning": {
+        "text": "Orders placed by customers within a tenant.",
+        "status": "assumed",
+        "evidence_ids": [
+          "SAEV002"
+        ],
+        "question_ids": [
+          "SAQ002"
+        ]
+      },
+      "grain": {
+        "text": "One row may represent one order within one tenant.",
+        "status": "assumed",
+        "evidence_ids": [
+          "SAEV002"
+        ],
+        "question_ids": [
+          "SAQ002"
+        ]
+      }
+    },
+    {
+      "id": "SATB003",
+      "schema": "main",
+      "name": "order_items",
+      "kind": "table",
+      "evidence_ids": [
+        "SAEV003"
+      ],
+      "columns": [
+        {
+          "name": "tenant_id",
+          "data_type": "INTEGER",
+          "nullable": false,
+          "evidence_ids": [
+            "SAEV003"
+          ]
+        },
+        {
+          "name": "order_id",
+          "data_type": "INTEGER",
+          "nullable": false,
+          "evidence_ids": [
+            "SAEV003"
+          ]
+        },
+        {
+          "name": "line_number",
+          "data_type": "INTEGER",
+          "nullable": false,
+          "evidence_ids": [
+            "SAEV003"
+          ]
+        }
+      ],
+      "keys": [
+        {
+          "kind": "primary",
+          "columns": [
+            "tenant_id",
+            "order_id",
+            "line_number"
+          ],
+          "evidence_ids": [
+            "SAEV003"
+          ]
+        }
+      ],
+      "meaning": {
+        "text": "Lines within an order.",
+        "status": "assumed",
+        "evidence_ids": [
+          "SAEV003"
+        ],
+        "question_ids": [
+          "SAQ002"
+        ]
+      },
+      "grain": {
+        "text": "One row may represent one order line within one tenant.",
+        "status": "assumed",
+        "evidence_ids": [
+          "SAEV003"
+        ],
+        "question_ids": [
+          "SAQ002"
+        ]
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "SARL001",
+      "from_table_id": "SATB003",
+      "from_columns": [
+        "tenant_id",
+        "order_id"
+      ],
+      "to_table_id": "SATB002",
+      "to_columns": [
+        "tenant_id",
+        "order_id"
+      ],
+      "status": "observed",
+      "evidence_ids": [
+        "SAEV002",
+        "SAEV003"
+      ],
+      "question_ids": [
+        "SAQ002",
+        "SAQ007"
+      ],
+      "cardinality": "many-to-one",
+      "join_use": "blocked"
+    },
+    {
+      "id": "SARL002",
+      "from_table_id": "SATB002",
+      "from_columns": [
+        "tenant_id",
+        "customer_id"
+      ],
+      "to_table_id": "SATB001",
+      "to_columns": [
+        "tenant_id",
+        "customer_id"
+      ],
+      "status": "assumed",
+      "evidence_ids": [
+        "SAEV001",
+        "SAEV002"
+      ],
+      "question_ids": [
+        "SAQ001",
+        "SAQ007"
+      ],
+      "cardinality": "many-to-one",
+      "join_use": "blocked"
+    }
+  ],
+  "definitions": [
+    {
+      "subject": "main.orders.status",
+      "claim": {
+        "text": null,
+        "status": "unknown",
+        "evidence_ids": [
+          "SAEV002",
+          "SAEV004"
+        ],
+        "question_ids": [
+          "SAQ003"
+        ]
+      }
+    },
+    {
+      "subject": "main.orders.total_minor",
+      "claim": {
+        "text": "The value may be an order total in currency minor units.",
+        "status": "assumed",
+        "evidence_ids": [
+          "SAEV002"
+        ],
+        "question_ids": [
+          "SAQ003",
+          "SAQ004"
+        ]
+      }
+    },
+    {
+      "subject": "main.orders.currency_code",
+      "claim": {
+        "text": "The value may identify the currency of total_minor.",
+        "status": "assumed",
+        "evidence_ids": [
+          "SAEV002"
+        ],
+        "question_ids": [
+          "SAQ004"
+        ]
+      }
+    },
+    {
+      "subject": "Month filter",
+      "claim": {
+        "text": null,
+        "status": "unknown",
+        "evidence_ids": [
+          "SAEV002",
+          "SAEV004"
+        ],
+        "question_ids": [
+          "SAQ005"
+        ]
+      }
+    },
+    {
+      "subject": "Tenant and field access",
+      "claim": {
+        "text": null,
+        "status": "unknown",
+        "evidence_ids": [
+          "SAEV004"
+        ],
+        "question_ids": [
+          "SAQ006"
+        ]
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "SAQ001",
+      "priority": "blocking",
+      "subjects": [
+        "SATB001",
+        "SATB002",
+        "SARL002"
+      ],
+      "question": "Do orders link to customers on both tenant_id and customer_id? Can an order refer to a missing or historical customer?",
+      "why_it_matters": "The schema declares no customer foreign key. A customer_id-only join can mix tenants or multiply rows.",
+      "needed_evidence": "The complete join rule, treatment of unmatched rows, and a cross-tenant example with repeated customer_id values.",
+      "evidence_ids": [
+        "SAEV001",
+        "SAEV002"
+      ],
+      "status": "open",
+      "answer": null,
+      "answered_by": null,
+      "answered_on": null
+    },
+    {
+      "id": "SAQ002",
+      "priority": "blocking",
+      "subjects": [
+        "SATB001",
+        "SATB002",
+        "SATB003"
+      ],
+      "question": "What does one row represent in each table? Are orders and customers current records, versions, or snapshots?",
+      "why_it_matters": "Physical primary keys do not establish business grain. The wrong grain can double-count revenue.",
+      "needed_evidence": "A business definition for each table and the rule for historical or deleted records.",
+      "evidence_ids": [
+        "SAEV001",
+        "SAEV002",
+        "SAEV003"
+      ],
+      "status": "open",
+      "answer": null,
+      "answered_by": null,
+      "answered_on": null
+    },
+    {
+      "id": "SAQ003",
+      "priority": "blocking",
+      "subjects": [
+        "SATB002"
+      ],
+      "question": "Which status values count as paid revenue? How do refunds, cancellations, and partial payments affect that amount?",
+      "why_it_matters": "No status dictionary or payment rule is supplied. A guessed filter can change reported revenue.",
+      "needed_evidence": "The status dictionary and the agreed revenue calculation with a worked refund example.",
+      "evidence_ids": [
+        "SAEV002",
+        "SAEV004"
+      ],
+      "status": "open",
+      "answer": null,
+      "answered_by": null,
+      "answered_on": null
+    },
+    {
+      "id": "SAQ004",
+      "priority": "blocking",
+      "subjects": [
+        "SATB002"
+      ],
+      "question": "What does total_minor measure? Which units, currency rules, taxes, and discounts apply? Can currencies be combined?",
+      "why_it_matters": "The column name does not prove a divisor, a revenue definition, or a valid cross-currency total.",
+      "needed_evidence": "The amount definition, currency unit rules, and any approved conversion or separate-currency grouping rule.",
+      "evidence_ids": [
+        "SAEV002"
+      ],
+      "status": "open",
+      "answer": null,
+      "answered_by": null,
+      "answered_on": null
+    },
+    {
+      "id": "SAQ005",
+      "priority": "blocking",
+      "subjects": [
+        "SATB002"
+      ],
+      "question": "Which source field and time zone define this month for paid revenue? The supplied tables have no date column.",
+      "why_it_matters": "The intended question requires a period filter that cannot be built from the supplied schema.",
+      "needed_evidence": "The missing timestamp source, its join rule, the business date definition, and month boundary rules.",
+      "evidence_ids": [
+        "SAEV002",
+        "SAEV004"
+      ],
+      "status": "open",
+      "answer": null,
+      "answered_by": null,
+      "answered_on": null
+    },
+    {
+      "id": "SAQ006",
+      "priority": "blocking",
+      "subjects": [
+        "SATB001",
+        "SATB002",
+        "SATB003"
+      ],
+      "question": "Which tenants and customer fields may each user access? Where is tenant scope enforced, and may display_name be exposed?",
+      "why_it_matters": "The brief allows users from different tenants. Schema discovery does not establish their access rights.",
+      "needed_evidence": "The access owner, tenant isolation rule, permitted customer fields, and responsibility for runtime enforcement.",
+      "evidence_ids": [
+        "SAEV001",
+        "SAEV002",
+        "SAEV003",
+        "SAEV004"
+      ],
+      "status": "open",
+      "answer": null,
+      "answered_by": null,
+      "answered_on": null
+    },
+    {
+      "id": "SAQ007",
+      "priority": "blocking",
+      "subjects": [
+        "SATB001",
+        "SATB002",
+        "SATB003",
+        "SARL001",
+        "SARL002"
+      ],
+      "question": "What result should the target question return for two customers, repeated tenant-local IDs, and an order with several items?",
+      "why_it_matters": "Joining order totals to item rows can multiply revenue. Customer grouping and the expected result need confirmation.",
+      "needed_evidence": "An SME-approved example with expected totals, result grain, required joins, filters, and currency treatment.",
+      "evidence_ids": [
+        "SAEV001",
+        "SAEV002",
+        "SAEV003",
+        "SAEV004"
+      ],
+      "status": "open",
+      "answer": null,
+      "answered_by": null,
+      "answered_on": null
+    }
+  ],
+  "query_cases": [
+    {
+      "question": "What was paid revenue by customer this month?",
+      "expected_behavior": {
+        "text": "Candidate plan: use orders at confirmed order grain; join customers on both tenant_id and customer_id. Do not join item rows unless the agreed measure requires them. Group by the confirmed customer identity and currency rule. Paid status, amount calculation, date source, period boundary, tenant access, and expected totals remain unconfirmed. Do not execute this plan.",
+        "status": "assumed",
+        "evidence_ids": [
+          "SAEV001",
+          "SAEV002",
+          "SAEV003",
+          "SAEV004"
+        ],
+        "question_ids": [
+          "SAQ001",
+          "SAQ002",
+          "SAQ003",
+          "SAQ004",
+          "SAQ005",
+          "SAQ006",
+          "SAQ007"
+        ]
+      }
+    }
+  ],
+  "readiness": {
+    "status": "needs_confirmation",
+    "scope": [
+      "Paid revenue by customer this month"
+    ],
+    "blocking_question_ids": [
+      "SAQ001",
+      "SAQ002",
+      "SAQ003",
+      "SAQ004",
+      "SAQ005",
+      "SAQ006",
+      "SAQ007"
+    ],
+    "runtime_controls": "not_assessed"
+  }
+}

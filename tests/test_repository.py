@@ -9,6 +9,7 @@ import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILLS = ROOT / "skills/business-analyst"
+SKILL_FILES = sorted((ROOT / "skills").glob("*/*/SKILL.md"))
 
 
 class RepositoryTests(unittest.TestCase):
@@ -21,13 +22,14 @@ class RepositoryTests(unittest.TestCase):
                 folder = plugin_root / directory
                 self.assertTrue(folder.is_dir())
                 exposed.update(path.resolve() for path in folder.glob("*/SKILL.md"))
-        self.assertEqual(exposed, {path.resolve() for path in SKILLS.glob("*/SKILL.md")})
+        self.assertEqual(exposed, {path.resolve() for path in SKILL_FILES})
         self.assertTrue(exposed)
 
     def test_copied_skills_have_valid_metadata_and_local_references(self):
         with tempfile.TemporaryDirectory() as temporary:
             installed = Path(temporary).resolve() / "skills"
-            shutil.copytree(SKILLS, installed)
+            for source in SKILL_FILES:
+                shutil.copytree(source.parent, installed / source.parent.name)
             for skill in installed.iterdir():
                 with self.subTest(skill=skill.name):
                     text = (skill / "SKILL.md").read_text()
@@ -43,7 +45,7 @@ class RepositoryTests(unittest.TestCase):
                             self.assertTrue(resolved.exists(), (document, target))
 
     def test_drawio_files_have_valid_connectors(self):
-        for path in SKILLS.glob("*/examples/*.drawio"):
+        for path in (ROOT / "skills").glob("*/*/examples/*.drawio"):
             with self.subTest(path=path):
                 cells = ET.parse(path).findall(".//mxCell")
                 identifiers = [cell.get("id") for cell in cells]

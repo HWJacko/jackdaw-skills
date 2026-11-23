@@ -1,13 +1,13 @@
 {
   "name": "jackdaw-skills",
   "owner": { "name": "hwjacko" },
-  "description": "Business and product analysis skills for agents: use case extraction, requirement construction, user flows, requirements maps.",
+  "description": "Business and data analysis skills: requirements, diagrams, schema discovery, SME review, and text-to-SQL setup.",
   "plugins": [
     {
       "name": "jackdaw-skills",
       "source": "./",
-      "skills": ["./skills/business-analyst/"],
-      "description": "Business and product analysis skills for agents: use case extraction, requirement construction, user flows, requirements maps."
+      "skills": ["./skills/business-analyst/", "./skills/data-analyst/"],
+      "description": "Business and data analysis skills: requirements, diagrams, schema discovery, SME review, and text-to-SQL setup."
     }
   ]
 }

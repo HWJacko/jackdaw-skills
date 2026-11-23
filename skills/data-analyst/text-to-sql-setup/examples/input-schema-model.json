@@ -1,0 +1,177 @@
+{
+  "model_version": 1,
+  "project": {
+    "name": "Query Example",
+    "abbreviation": "QE"
+  },
+  "inspection": {
+    "date": "2026-11-23",
+    "dialect": "sqlite",
+    "source_mode": "supplied_schema",
+    "scope": [
+      "main.orders"
+    ],
+    "limitations": [
+      "Synthetic fixture only. No live schema or runtime controls were checked."
+    ]
+  },
+  "evidence": [
+    {
+      "id": "QEEV001",
+      "kind": "ddl",
+      "source": "input-schema.sql",
+      "detail": "Three NOT NULL columns and the ordered tenant_id, order_id primary key."
+    },
+    {
+      "id": "QEEV002",
+      "kind": "sme_answer",
+      "source": "input-sme-answers.md",
+      "detail": "Example SME confirmed table grain, tenant scope, and expected order counts on 2026-11-23."
+    }
+  ],
+  "tables": [
+    {
+      "id": "QETB001",
+      "schema": "main",
+      "name": "orders",
+      "kind": "table",
+      "evidence_ids": [
+        "QEEV001"
+      ],
+      "columns": [
+        {
+          "name": "tenant_id",
+          "data_type": "INTEGER",
+          "nullable": false,
+          "evidence_ids": [
+            "QEEV001"
+          ]
+        },
+        {
+          "name": "order_id",
+          "data_type": "INTEGER",
+          "nullable": false,
+          "evidence_ids": [
+            "QEEV001"
+          ]
+        },
+        {
+          "name": "status",
+          "data_type": "TEXT",
+          "nullable": false,
+          "evidence_ids": [
+            "QEEV001"
+          ]
+        }
+      ],
+      "keys": [
+        {
+          "kind": "primary",
+          "columns": [
+            "tenant_id",
+            "order_id"
+          ],
+          "evidence_ids": [
+            "QEEV001"
+          ]
+        }
+      ],
+      "meaning": {
+        "text": "Current order records within a tenant.",
+        "status": "confirmed",
+        "evidence_ids": [
+          "QEEV002"
+        ],
+        "question_ids": [
+          "QEQ001"
+        ]
+      },
+      "grain": {
+        "text": "One row per order within one tenant.",
+        "status": "confirmed",
+        "evidence_ids": [
+          "QEEV002"
+        ],
+        "question_ids": [
+          "QEQ001"
+        ]
+      }
+    }
+  ],
+  "relationships": [],
+  "definitions": [
+    {
+      "subject": "main.orders.status",
+      "claim": {
+        "text": "Group by the exact stored status. Include every status for the caller tenant.",
+        "status": "confirmed",
+        "evidence_ids": [
+          "QEEV002"
+        ],
+        "question_ids": [
+          "QEQ002"
+        ]
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "QEQ001",
+      "priority": "blocking",
+      "subjects": [
+        "QETB001"
+      ],
+      "question": "What does one order row represent?",
+      "why_it_matters": "Order counts depend on row grain.",
+      "needed_evidence": "Table meaning and row grain.",
+      "evidence_ids": [
+        "QEEV001",
+        "QEEV002"
+      ],
+      "status": "answered",
+      "answer": "One current order per tenant_id and order_id.",
+      "answered_by": "Example SME",
+      "answered_on": "2026-11-23"
+    },
+    {
+      "id": "QEQ002",
+      "priority": "blocking",
+      "subjects": [
+        "QETB001"
+      ],
+      "question": "What should the count query return for each tenant?",
+      "why_it_matters": "The count must use the right population and expose no tenant identifiers.",
+      "needed_evidence": "Worked result and tenant rule.",
+      "evidence_ids": [
+        "QEEV002"
+      ],
+      "status": "answered",
+      "answer": "Count rows by exact status for the authenticated tenant. Tenant 1 returns new: 1 and paid: 2; tenant 2 returns paid: 3.",
+      "answered_by": "Example SME",
+      "answered_on": "2026-11-23"
+    }
+  ],
+  "query_cases": [
+    {
+      "question": "How many orders are in each status for my tenant?",
+      "expected_behavior": {
+        "text": "Bind tenant_id from the authenticated caller. Count orders by exact status and return status, order_count sorted by status. No join is required. Tenant 1 returns new: 1 and paid: 2. Tenant 2 returns paid: 3.",
+        "status": "confirmed",
+        "evidence_ids": [
+          "QEEV002"
+        ],
+        "question_ids": [
+          "QEQ002"
+        ]
+      }
+    }
+  ],
+  "readiness": {
+    "status": "ready_for_handoff",
+    "scope": [
+      "Order counts by status for the authenticated tenant"
+    ],
+    "blocking_question_ids": [],
+    "runtime_controls": "not_assessed"
+  }
+}

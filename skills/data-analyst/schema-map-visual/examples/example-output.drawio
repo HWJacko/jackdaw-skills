@@ -1,0 +1,28 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Shop Analytics — Assumed Schema">
+    <mxGraphModel grid="1" page="1" pageWidth="1600" pageHeight="1000">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="SATB001" value="SATB001 main.customers&lt;br/&gt;tenant_id INTEGER PK1&lt;br/&gt;customer_id INTEGER PK2&lt;br/&gt;display_name TEXT" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="60" y="220" width="310" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="SATB002" value="SATB002 main.orders&lt;br/&gt;tenant_id INTEGER PK1&lt;br/&gt;order_id INTEGER PK2&lt;br/&gt;customer_id INTEGER&lt;br/&gt;status TEXT&lt;br/&gt;total_minor INTEGER&lt;br/&gt;currency_code TEXT" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="560" y="220" width="310" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="SATB003" value="SATB003 main.order_items&lt;br/&gt;tenant_id INTEGER PK1&lt;br/&gt;order_id INTEGER PK2&lt;br/&gt;line_number INTEGER PK3" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="220" width="310" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="SARL001" value="SARL001 observed | declared many-to-one | query use blocked&lt;br/&gt;(tenant_id, order_id) to (tenant_id, order_id)&lt;br/&gt;Questions: SAQ002, SAQ007" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="SATB003" target="SATB002">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SARL002" value="SARL002 assumed | candidate many-to-one | query use blocked&lt;br/&gt;(tenant_id, customer_id) to (tenant_id, customer_id)&lt;br/&gt;Questions: SAQ001, SAQ007" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;" edge="1" parent="1" source="SATB002" target="SATB001">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="legend" value="Handoff: needs_confirmation | Runtime controls: not_assessed&lt;br/&gt;Solid: observed or confirmed; dashed: assumed. Both joins are blocked.&lt;br/&gt;Blocking questions: SAQ001, SAQ002, SAQ003, SAQ004, SAQ005, SAQ006, SAQ007&lt;br/&gt;Supplied DDL only. No data checks or SME answers." style="text;html=1;whiteSpace=wrap;align=left;" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="1400" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
