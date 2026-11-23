@@ -33,6 +33,10 @@ Write all of these to `output/`, basename `[PN]-user-flow-[EPIC-ID]`:
 2. **draw.io XML** — `[PN]-user-flow-[EPIC-ID].drawio`. Always produced. Plain text, diffable, and importable into Lucidchart later (File → Import).
 3. **PNG** — `[PN]-user-flow-[EPIC-ID].png`, only if the `drawio` CLI is installed: `drawio -x -f png -o <out.png> <in.drawio>`. If the CLI is absent, skip without failing and note the install line: `brew install --cask drawio`.
 
+## Optional styled render
+
+If the [diagram-design](https://github.com/cathrynlavery/diagram-design) skill is installed, offer to also render the flow in its editorial style (self-contained HTML/SVG). It can import the Mermaid or draw.io output directly. Skip silently if not installed.
+
 ## Rules
 
 - Never require an account, API key, OAuth token or secret. There is no authenticated path.

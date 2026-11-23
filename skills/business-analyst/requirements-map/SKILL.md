@@ -30,6 +30,10 @@ Write all of these to `output/`, basename `[PN]-requirements-map`:
 2. **draw.io XML** — `[PN]-requirements-map.drawio`. Always produced. Tree layout, same hierarchy and IDs. Importable into Lucidchart (File → Import).
 3. **PNG** — `[PN]-requirements-map.png`, only if the `drawio` CLI is installed: `drawio -x -f png -o <out.png> <in.drawio>`. If absent, skip without failing and note: `brew install --cask drawio`.
 
+## Optional styled render
+
+If the [diagram-design](https://github.com/cathrynlavery/diagram-design) skill is installed, offer to also render the map in its editorial style (self-contained HTML/SVG). It can import the Mermaid or draw.io output directly. Skip silently if not installed.
+
 ## Rules
 
 - Never require an account, API key, OAuth token or secret. There is no authenticated path.

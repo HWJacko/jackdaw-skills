@@ -51,6 +51,16 @@ cp -r jackdaw-skills/skills/business-analyst/* ~/.agents/skills/
 
 Invoke with `$use-case-extraction` or describe the task. The `.claude-plugin/marketplace.json` manifest is Claude Code only; Codex ignores it.
 
+## Optional: styled diagrams
+
+The [VISUAL] skills (user-flow, requirements-map) produce Mermaid and draw.io by default — no dependencies. For presentation-grade, on-brand diagrams (52 types, brand colors/fonts from a URL, SVG/PNG export), install the optional [diagram-design](https://github.com/cathrynlavery/diagram-design) skill:
+
+```text
+/plugin marketplace add cathrynlavery/diagram-design
+```
+
+When installed, the [VISUAL] skills offer it as an extra render step. It is never required.
+
 ## Invoke
 
 After install, describe the task in natural language or use the slash command. The agent matches the task to the skill's `description` in `SKILL.md`. Example: "Extract use cases from these meeting notes."
