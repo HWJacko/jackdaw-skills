@@ -17,6 +17,7 @@ Count order rows by their exact stored status. Include every status present for 
 The result has one row per status. Return `status` and `order_count`, sorted by status.
 Do not return tenant or order IDs. No join is required.
 Bind the tenant from the authenticated caller. Do not accept a tenant chosen by the language model.
+The ordered row-scope columns for `main.orders` are `[tenant_id]`. This table is not global.
 
 For tenant 1, the test rows have one `new` order and two `paid` orders.
 For tenant 2, the test rows have three `paid` orders.

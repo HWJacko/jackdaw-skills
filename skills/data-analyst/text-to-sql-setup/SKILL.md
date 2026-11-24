@@ -41,6 +41,7 @@ Ask for details only when they block the next implementation step. Do not invent
 3. Define the permitted tables, columns, joins, calculations, and filters for each intended query.
    Use only confirmed meanings and approved relationships from the query context.
    Do not infer extra joins from similar column names. Ask for clarification when a question needs an unavailable definition.
+   Confirm each table's explicit row scope. Keep every required scope pair and complete key in approved joins.
 4. Define user identity, tenant scope, read-only database rights, secret storage, and query limits.
    Bind access scope from the authenticated caller. A model-generated tenant value cannot grant access.
    Record an owner and test for each control. A written policy is not proof of enforcement.

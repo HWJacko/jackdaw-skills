@@ -95,6 +95,18 @@
         "question_ids": [
           "QEQ001"
         ]
+      },
+      "row_scope": {
+        "columns": [
+          "tenant_id"
+        ],
+        "status": "confirmed",
+        "evidence_ids": [
+          "QEEV002"
+        ],
+        "question_ids": [
+          "QEQ002"
+        ]
       }
     }
   ],

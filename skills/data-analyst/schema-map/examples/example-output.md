@@ -36,6 +36,11 @@ Source: supplied SQLite DDL in `input-schema.sql` and the scope in `input-brief.
 | main.order_items | order_id | INTEGER | no | SAEV003 |
 | main.order_items | line_number | INTEGER | no | SAEV003 |
 
+## Row scope
+
+All three tables have assumed row scope `(tenant_id)`. Evidence: SAEV001–SAEV004. Question: SAQ006.
+No SME has confirmed these columns or granted row access. None of the tables is confirmed as global.
+
 ## Relationships
 
 | ID | Ordered source columns | Ordered target columns | Cardinality | Status | Query use | Evidence | Questions |

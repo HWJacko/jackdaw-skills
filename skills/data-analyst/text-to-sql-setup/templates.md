@@ -17,10 +17,18 @@ The context describes database meaning. It does not grant database access.
 The model must use version `1` and `ready_for_handoff` for its stated scope.
 Blocking questions must be answered. An answer needs text, respondent, date, and linked SME evidence.
 Use evidence kind `sme_answer` for a dated SME response.
-Table meanings, row grain, and query cases must be confirmed with that evidence.
+Table meanings, row grain, row scope, and query cases must be confirmed with that evidence.
+Each table needs explicit `row_scope` columns. A confirmed empty list means global scope.
+Missing scope does not mean global scope. Older models need a scope review before setup.
 The helper preserves observed structure and exports only confirmed definitions and approved joins.
 It lists unconfirmed definitions and blocked relationships as unavailable.
 An approved join must have observed or confirmed status, complete column lists, and SME evidence.
+Between scoped tables, all scope columns must be paired in their stated dimension order.
+Many-to-one joins must cover a complete target primary or unique key.
+One-to-one joins must cover a complete key on each side. Additional join columns are allowed.
+Key column order can differ from the declaration when source-to-target pairs remain correct.
+Only unconditional column keys support this check. An unproven key leaves the join blocked.
+The helper also rejects duplicate column names, invalid key fields, and invalid nullability or review status values.
 All references must resolve. Referenced questions for a confirmed item must be answered.
 The helper checks record consistency. It cannot prove that an SME answer is correct or that the database matches the snapshot.
 

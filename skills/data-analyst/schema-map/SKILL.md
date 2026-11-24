@@ -34,6 +34,9 @@ If neither a database tool nor schema files are available, ask for one. Do not i
 4. Build claims with the statuses defined in the template. Distinguish physical structure from business meaning.
    A declared key does not prove a business definition, valid historical data, or permission to expose a field.
    For each table, propose its meaning and grain. Grain means what one row represents.
+   Record `row_scope`: the ordered columns that identify the tenant or other row-access scope.
+   Treat this as a business claim for SME review. Use an unknown claim when evidence is absent.
+   A confirmed empty scope means a global table. Missing scope does not mean global access.
 5. Propose missing relationships only when evidence supports a candidate.
    Cite the evidence and state the uncertainty. Matching names or types alone do not prove a join.
    Check tenant keys, composite keys, nulls, uniqueness, bridge tables, historical versions, and row multiplication.
@@ -56,7 +59,7 @@ If neither a database tool nor schema files are available, ask for one. Do not i
 - A join is `approved` only after its keys, meaning, and required checks are confirmed for the stated query scope.
   A declared foreign key alone does not approve query use. Keep other joins `blocked`.
 - Use `ready_for_handoff` only when blocking questions are answered and acceptance cases are confirmed for the stated scope.
-  All included table meanings and row grain must be confirmed.
+  All included table meanings, row grain, and row scope must be confirmed.
   Otherwise use `needs_confirmation`. A deferred blocking question remains a blocker.
 - Record runtime controls as `not_assessed`. A schema handoff does not approve a production MCP server or query execution.
   Text-to-SQL Setup can consume the confirmed model and establish access controls, query limits, and query evaluation.

@@ -112,6 +112,19 @@
         "question_ids": [
           "SAQ002"
         ]
+      },
+      "row_scope": {
+        "columns": [
+          "tenant_id"
+        ],
+        "status": "assumed",
+        "evidence_ids": [
+          "SAEV001",
+          "SAEV004"
+        ],
+        "question_ids": [
+          "SAQ006"
+        ]
       }
     },
     {
@@ -203,6 +216,19 @@
         "question_ids": [
           "SAQ002"
         ]
+      },
+      "row_scope": {
+        "columns": [
+          "tenant_id"
+        ],
+        "status": "assumed",
+        "evidence_ids": [
+          "SAEV002",
+          "SAEV004"
+        ],
+        "question_ids": [
+          "SAQ006"
+        ]
       }
     },
     {
@@ -270,6 +296,19 @@
         ],
         "question_ids": [
           "SAQ002"
+        ]
+      },
+      "row_scope": {
+        "columns": [
+          "tenant_id"
+        ],
+        "status": "assumed",
+        "evidence_ids": [
+          "SAEV003",
+          "SAEV004"
+        ],
+        "question_ids": [
+          "SAQ006"
         ]
       }
     }
@@ -497,7 +536,7 @@
         "SATB002",
         "SATB003"
       ],
-      "question": "Which tenants and customer fields may each user access? Where is tenant scope enforced, and may display_name be exposed?",
+      "question": "Do tenant_id columns define the same row scope in all three tables? Which tenants and customer fields may each user access? Where is this scope enforced?",
       "why_it_matters": "The brief allows users from different tenants. Schema discovery does not establish their access rights.",
       "needed_evidence": "The access owner, tenant isolation rule, permitted customer fields, and responsibility for runtime enforcement.",
       "evidence_ids": [

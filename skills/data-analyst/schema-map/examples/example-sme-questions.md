@@ -63,7 +63,7 @@ Answered on: pending
 
 Priority: blocking | Subjects: SATB001, SATB002, SATB003 | Status: open
 Evidence: SAEV001, SAEV002, SAEV003, SAEV004
-Question: Which tenants and customer fields may each user access? Where is tenant scope enforced, and may display_name be exposed?
+Question: Do tenant_id columns define the same row scope in all three tables? Which tenants and customer fields may each user access? Where is this scope enforced?
 Why it matters: The brief allows users from different tenants. Schema discovery does not establish their access rights.
 Needed evidence: The access owner, tenant isolation rule, permitted customer fields, and responsibility for runtime enforcement.
 Answer: pending

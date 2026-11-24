@@ -78,6 +78,8 @@ Assumed relationships stay labelled as assumptions. A diagram does not approve a
 Use `text-to-sql-setup` after SME review. It can prepare an MCP (Model Context Protocol) or text-to-SQL solution.
 The skill checks the schema handoff and prepares query context, access rules, evaluation cases, and a setup report.
 Its local helper rejects open schema blockers. It exports only confirmed meanings and approved joins.
+Each table needs SME-confirmed `row_scope` columns before query setup. A confirmed empty list means global scope.
+The helper checks scope pairs and complete keys for approved joins. Existing models need a scope review before export.
 
 Example request: "Use this confirmed schema model to prepare our existing SQL tool for text-to-SQL."
 

@@ -78,6 +78,15 @@
         "evidence_ids": [
           "QEEV002"
         ]
+      },
+      "row_scope": {
+        "columns": [
+          "tenant_id"
+        ],
+        "status": "confirmed",
+        "evidence_ids": [
+          "QEEV002"
+        ]
       }
     }
   ],

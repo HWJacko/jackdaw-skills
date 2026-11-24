@@ -32,7 +32,7 @@ Use UTF-8 JSON. Set `model_version` to `1`. Include these fields:
 | `project` | `name`, `abbreviation` |
 | `inspection` | `date`, `dialect`, `source_mode` (`live_metadata` or `supplied_schema`), `scope`, `limitations` |
 | `evidence` | List of `id`, `kind`, `source`, `detail`. Use file lines, catalogue query references, or dated SME answers. No credentials. |
-| `tables` | List of `id`, `schema`, `name`, `kind`, `evidence_ids`, `columns`, `keys`, `meaning`, `grain` |
+| `tables` | List of `id`, `schema`, `name`, `kind`, `evidence_ids`, `columns`, `keys`, `meaning`, `grain`, `row_scope` |
 | `relationships` | List of `id`, `from_table_id`, `from_columns`, `to_table_id`, `to_columns`, `status`, `evidence_ids`, `question_ids`, `cardinality`, `join_use` |
 | `definitions` | Business terms or field rules: `subject`, `claim`. Use exact object names in `subject`. |
 | `questions` | SME question records defined below |
@@ -44,7 +44,13 @@ Use an empty list when no items are known. Do not fill absent metadata with inve
 Each column has `name`, `data_type`, `nullable`, and `evidence_ids`. `nullable` may be null if unknown.
 Add source-backed defaults or generated-column details when relevant.
 Each key has `kind` (`primary` or `unique`), ordered `columns`, and `evidence_ids`.
-Keep expression indexes separate from ordinary column keys when encountered.
+Record only unconditional column keys in `keys`. Keep partial or expression indexes separate.
+
+`row_scope` has `columns`, `status`, `evidence_ids`, and `question_ids`.
+Its ordered columns identify the tenant or other row-access scope. Use the same dimension order across scoped tables.
+An unknown scope uses `columns: []` and `status: unknown`, with a linked SME question.
+A global table uses `columns: []` and `status: confirmed`, with explicit SME evidence.
+Missing scope is unconfirmed. Existing version 1 models need this field confirmed before query setup.
 
 `meaning`, `grain`, each definition's `claim`, and each query case's `expected_behavior` use:
 
@@ -62,6 +68,10 @@ Relationship column lists have matching positions and lengths. Pair columns by p
 For an observed relationship, this describes the declared structure, not a completed data-quality check.
 For an assumed relationship, cardinality is also assumed. Use `unknown` if there is no basis for it.
 `join_use` is `blocked` or `approved`. Preserve rejected relationships with `join_use: blocked`.
+For joins between scoped tables, pair all row-scope columns in their stated order.
+Many-to-one joins must include a complete target primary or unique key.
+One-to-one joins must include a complete key on both sides. Reordered key columns are valid if the pairs stay correct.
+If keys cannot support the stated cardinality, leave query use blocked for review.
 
 Each question has:
 
@@ -92,6 +102,10 @@ Date: [date] | Project: [PN] | Handoff: needs_confirmation
 
 | ID | Database object | Observed structure | Proposed meaning and grain | Status | Evidence | Questions |
 | --- | --- | --- | --- | --- | --- | --- |
+
+## Row scope
+
+[Ordered scope columns per table, status, evidence, and open question IDs. State global scope only with SME confirmation.]
 
 ## Relationships
 
