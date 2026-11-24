@@ -1,13 +1,13 @@
 {
   "name": "jackdaw-skills",
   "owner": { "name": "hwjacko" },
-  "description": "Business and data analysis skills: requirements, diagrams, schema discovery, SME review, and text-to-SQL setup.",
+  "description": "Business, data, product, and research skills: evidence, metrics, requirements, impact analysis, roadmaps, and backlog planning.",
   "plugins": [
     {
       "name": "jackdaw-skills",
       "source": "./",
-      "skills": ["./skills/business-analyst/", "./skills/data-analyst/"],
-      "description": "Business and data analysis skills: requirements, diagrams, schema discovery, SME review, and text-to-SQL setup."
+      "skills": ["./skills/business-analyst/", "./skills/data-analyst/", "./skills/product-manager/", "./skills/product-owner/", "./skills/user-research/"],
+      "description": "Business, data, product, and research skills: evidence, metrics, requirements, impact analysis, roadmaps, and backlog planning."
     }
   ]
 }

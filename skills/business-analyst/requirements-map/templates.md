@@ -21,6 +21,7 @@ Type: `mindmap`. One map per project.
 - Use the IDs from the source files. Do not renumber.
 - Link stories through `Source use case:`. Link use cases through their EPIC tables.
 - List IDs with missing source links under `Unmapped items`. Count them as gaps. Do not guess a parent.
+- Retain supplied outcome, test, and result links in a separate trace-link table. Keep the requirements tree unchanged.
 - Gaps: append `(no stories)` or `(empty)`.
 - After the diagram, give a coverage summary: counts and gaps.
 
@@ -41,7 +42,15 @@ mindmap
 ## Coverage
 - EPICs: n | Use cases: n | Stories: n
 - Gaps: [list]
+
+## Trace links
+
+| From ID | To ID | Relationship | Link status | Source |
+| --- | --- | --- | --- | --- |
 ````
+
+Trace links use source → dependent direction. `recorded` means documented; `proposed` means an association needing review.
+Missing links remain gaps. Use Change-Impact Analysis for the wider graph rather than adding invented parents to this tree.
 
 ## draw.io XML
 

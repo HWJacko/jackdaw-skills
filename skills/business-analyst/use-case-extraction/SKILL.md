@@ -26,6 +26,7 @@ Raw text: meeting notes, a project brief, a transcript, or a description.
 4. Write use cases under each EPIC.
    - Format: "To achieve [Goal] [Stakeholder] can [Behaviour] by [Trigger] in/on [Systems], with [Dependencies]".
    - ID: `[PN]UC001`, sequential across the project.
+   - Preserve supplied problem and outcome IDs in the trace-link table. Do not infer them from similar names.
 5. Granularity rule: each use case must be small enough to break down into atomic user stories by the requirement-construction skill. If the input needs more than one EPIC with its own use cases, produce them all.
 6. If information is missing, state the assumption in one line and continue. Do not stop to confirm derivable values (project abbreviation, paths, formats). Only ask the user when required information is genuinely absent.
 7. Do not discuss voice, language rules, or instruction conflicts in your response — produce the output only.
@@ -38,6 +39,7 @@ One Markdown document:
 - Lists: Stakeholders, Systems, Goals.
 - EPIC table: ID, statement.
 - Use case table per EPIC: ID, use case, dependencies.
+- Source problem and outcome references, plus documented trace links. Leave absent references `unknown`.
 
 Write the output to `output/[PN]-use-cases.md` unless the user says otherwise.
 

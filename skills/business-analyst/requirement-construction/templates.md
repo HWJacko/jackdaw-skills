@@ -9,6 +9,7 @@
 The local ID is not the JIRA key. A JIRA key is added later only if a JIRA connection is available.
 
 Record `Source use case: [PN]UC###` under each story heading. Use `unknown` when the source has no ID.
+Also retain supplied outcome IDs and test or result references. Unknown links remain gaps.
 
 ## Story format
 
@@ -31,6 +32,8 @@ Use AND / BUT / OR as needed. One scenario per distinct behaviour.
 ```markdown
 ## [PN]US001
 Source use case: [PN]UC001
+Source outcome: [existing IDs, or unknown]
+Verification refs: [existing test or result IDs, or unknown]
 As a [stakeholder] I want to be able to [action] so that [outcome]
 
 Scenario 1: [name]
@@ -41,6 +44,16 @@ Then ...
 AC1: ...
 AC2: ...
 ```
+
+## Trace links
+
+Append a document-level table after the stories when source links are available:
+
+| From ID | To ID | Relationship | Link status | Source |
+| --- | --- | --- | --- | --- |
+
+Direction is source → dependent. Use `recorded` for an explicit source link and `proposed` for a suggested association.
+A story-to-test link does not mean the test has run. A result needs its own source evidence.
 
 ## Canonical examples
 

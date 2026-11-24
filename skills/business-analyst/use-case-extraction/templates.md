@@ -25,6 +25,8 @@ Preferred, not mandatory:
 ```markdown
 # [Project name] — Use Case Extraction
 Date: [date] | Project ID: [PN]
+Source problems: [existing IDs, or unknown]
+Source outcomes: [existing IDs, or unknown]
 
 ## Stakeholders
 - ...
@@ -44,4 +46,13 @@ Date: [date] | Project ID: [PN]
 | ID | Use case | Dependencies |
 | --- | --- | --- |
 | [PN]UC001 | ... | ... |
+
+## Trace links
+
+| From ID | To ID | Relationship | Link status | Source |
+| --- | --- | --- | --- | --- |
 ```
+
+Direction is source → dependent. Use `recorded` for an explicit source link and `proposed` for a suggested association.
+Preserve native IDs. Qualify local IDs with their source document when needed.
+Unknown references are gaps, not graph nodes. Link status does not establish agreement or completion.

@@ -92,6 +92,16 @@ class CreateStoriesTests(unittest.TestCase):
         self.assertIn("## NWUS001 (TEST-1)", self.path.read_text())
         self.assertIn("## NWUS002 (TEST-2)", self.path.read_text())
 
+    def test_trace_metadata_does_not_create_extra_stories(self):
+        traced = STORY.replace("Source use case: NWUC001", "Source use case: NWUC001\nSource outcome: NWOC001\nVerification refs: NWTC001")
+        traced += "\n## Trace links\n\n| From ID | To ID | Relationship | Link status | Source |\n| --- | --- | --- | --- | --- |\n| NWUS001 | NWTC001 | checked by | recorded | fixture |\n"
+        self.path.write_text(traced)
+        os.environ.update(CONFIG)
+        self.run_script()
+        self.post.assert_called_once()
+        self.assertIn("Source outcome: NWOC001", self.path.read_text())
+        self.assertIn("## Trace links", self.path.read_text())
+
     def test_partial_failure_preserves_success_and_blocks_retry(self):
         os.environ.update(CONFIG)
         self.path.write_text(STORY + SECOND_STORY)

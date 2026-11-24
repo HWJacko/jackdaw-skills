@@ -1,0 +1,151 @@
+{
+  "trace_version": 1,
+  "scope": "Selected synthetic research, product, metric, and backlog records in input.md only",
+  "nodes": [
+    {
+      "id": "SPEV001",
+      "kind": "evidence",
+      "label": "Interview note",
+      "source": "input.md SPEV001"
+    },
+    {
+      "id": "SPOB001",
+      "kind": "observation",
+      "label": "Preview observation",
+      "source": "input.md SPOB001"
+    },
+    {
+      "id": "SPRF001",
+      "kind": "finding",
+      "label": "Interpreted preview finding",
+      "source": "input.md SPRF001"
+    },
+    {
+      "id": "SPPR001",
+      "kind": "problem",
+      "label": "Publishing help problem",
+      "source": "input.md SPPR001"
+    },
+    {
+      "id": "SPMT001",
+      "kind": "metric",
+      "label": "Help-rate definition under review",
+      "source": "input.md SPMT001"
+    },
+    {
+      "id": "SPOC001",
+      "kind": "outcome",
+      "label": "Fewer attempts need help",
+      "source": "input.md SPOC001"
+    },
+    {
+      "id": "SPUC001",
+      "kind": "use_case",
+      "label": "Preview use case",
+      "source": "input.md SPUC001"
+    },
+    {
+      "id": "SPUS001",
+      "kind": "story",
+      "label": "Preview story",
+      "source": "input.md SPUS001"
+    },
+    {
+      "id": "SPTC001",
+      "kind": "test",
+      "label": "Preview layout test",
+      "source": "input.md SPTC001"
+    },
+    {
+      "id": "SPRS001",
+      "kind": "result",
+      "label": "Recorded synthetic layout result",
+      "source": "input.md SPRS001"
+    },
+    {
+      "id": "SPUS004",
+      "kind": "story",
+      "label": "Colour-change story",
+      "source": "input.md SPUS004"
+    }
+  ],
+  "links": [
+    {
+      "from": "SPEV001",
+      "to": "SPOB001",
+      "relationship": "source",
+      "status": "recorded",
+      "source": "input.md SPEV001"
+    },
+    {
+      "from": "SPOB001",
+      "to": "SPRF001",
+      "relationship": "supports",
+      "status": "recorded",
+      "source": "input.md SPOB001"
+    },
+    {
+      "from": "SPRF001",
+      "to": "SPPR001",
+      "relationship": "informs",
+      "status": "recorded",
+      "source": "input.md SPRF001"
+    },
+    {
+      "from": "SPPR001",
+      "to": "SPOC001",
+      "relationship": "motivates",
+      "status": "recorded",
+      "source": "input.md SPPR001"
+    },
+    {
+      "from": "SPMT001",
+      "to": "SPOC001",
+      "relationship": "used to assess",
+      "status": "recorded",
+      "source": "input.md SPMT001"
+    },
+    {
+      "from": "SPOC001",
+      "to": "SPUC001",
+      "relationship": "defines",
+      "status": "recorded",
+      "source": "input.md SPOC001"
+    },
+    {
+      "from": "SPUC001",
+      "to": "SPUS001",
+      "relationship": "implemented by",
+      "status": "recorded",
+      "source": "input.md SPUC001"
+    },
+    {
+      "from": "SPUS001",
+      "to": "SPTC001",
+      "relationship": "checked by",
+      "status": "recorded",
+      "source": "input.md SPUS001"
+    },
+    {
+      "from": "SPTC001",
+      "to": "SPRS001",
+      "relationship": "result",
+      "status": "recorded",
+      "source": "input.md SPTC001"
+    },
+    {
+      "from": "SPOC001",
+      "to": "SPUS004",
+      "relationship": "may support",
+      "status": "proposed",
+      "source": "input.md SPUS004"
+    },
+    {
+      "from": "SPOC001",
+      "to": "SPUC999",
+      "relationship": "defines",
+      "status": "recorded",
+      "source": "input.md SPOC001"
+    }
+  ]
+}

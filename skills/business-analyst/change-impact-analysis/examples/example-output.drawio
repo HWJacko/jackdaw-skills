@@ -1,0 +1,58 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Support Portal — Change Impact">
+    <mxGraphModel grid="1" page="1" pageWidth="2100" pageHeight="900">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="SPMT001" value="SPMT001 Help-rate definition&lt;br/&gt;changed; rule proposed" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#536779;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="300" width="250" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="SPOC001" value="SPOC001 Publishing help outcome&lt;br/&gt;review required" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f2ff;strokeColor=#536779;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="390" y="300" width="250" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="SPUC001" value="SPUC001 Preview use case&lt;br/&gt;review required" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f2ff;strokeColor=#536779;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="740" y="160" width="250" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="SPUS001" value="SPUS001 Preview story&lt;br/&gt;review required" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f2ff;strokeColor=#536779;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="160" width="250" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="SPTC001" value="SPTC001 Preview test&lt;br/&gt;review required" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f2ff;strokeColor=#536779;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1440" y="160" width="250" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="SPRS001" value="SPRS001 Existing result&lt;br/&gt;review required; result retained" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f2ff;strokeColor=#536779;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1790" y="160" width="250" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="SPUS004" value="SPUS004 Colour-change story&lt;br/&gt;possible review" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#536779;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="740" y="440" width="250" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="gap1" value="SPUC999 Source record missing&lt;br/&gt;gap placeholder" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#536779;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="740" y="660" width="250" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="edge1" value="used to assess" style="edgeStyle=orthogonalEdgeStyle;html=1;whiteSpace=wrap;fontSize=11;" edge="1" parent="1" source="SPMT001" target="SPOC001">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge2" value="defines" style="edgeStyle=orthogonalEdgeStyle;html=1;whiteSpace=wrap;fontSize=11;" edge="1" parent="1" source="SPOC001" target="SPUC001">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge3" value="implemented by" style="edgeStyle=orthogonalEdgeStyle;html=1;whiteSpace=wrap;fontSize=11;" edge="1" parent="1" source="SPUC001" target="SPUS001">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge4" value="checked by" style="edgeStyle=orthogonalEdgeStyle;html=1;whiteSpace=wrap;fontSize=11;" edge="1" parent="1" source="SPUS001" target="SPTC001">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge5" value="result" style="edgeStyle=orthogonalEdgeStyle;html=1;whiteSpace=wrap;fontSize=11;" edge="1" parent="1" source="SPTC001" target="SPRS001">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge6" value="may support" style="edgeStyle=orthogonalEdgeStyle;html=1;whiteSpace=wrap;fontSize=11;dashed=1;" edge="1" parent="1" source="SPOC001" target="SPUS004">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge7" value="defines" style="edgeStyle=orthogonalEdgeStyle;html=1;whiteSpace=wrap;fontSize=11;" edge="1" parent="1" source="SPOC001" target="gap1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="legend" value="Partial supplied graph. Solid: recorded link; dashed: proposed link.&lt;br/&gt;The missing-record box is a placeholder. Review does not prove a changed value or failed test." style="text;html=1;whiteSpace=wrap;align=left;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="2020" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

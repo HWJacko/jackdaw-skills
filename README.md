@@ -6,8 +6,9 @@ A shareable repository of agent skills for business and product functions. Publi
 
 - Business Analyst (Phase 1)
 - Data Analyst (Phase 2)
-- Product Manager (TBC)
-- Product Owner (TBC)
+- Product Manager (Phase 3)
+- Product Owner (Phase 4)
+- User Research (Phase 5)
 
 ## Structure
 
@@ -40,6 +41,9 @@ git clone https://github.com/hwjacko/jackdaw-skills.git
 mkdir -p ~/.claude/skills
 cp -r jackdaw-skills/skills/business-analyst/* ~/.claude/skills/
 cp -r jackdaw-skills/skills/data-analyst/* ~/.claude/skills/
+cp -r jackdaw-skills/skills/product-manager/* ~/.claude/skills/
+cp -r jackdaw-skills/skills/product-owner/* ~/.claude/skills/
+cp -r jackdaw-skills/skills/user-research/* ~/.claude/skills/
 ```
 
 Or use `<project>/.claude/skills/` for one project only (committable, so the team gets it too). Skills run as `/use-case-extraction` etc. **Restart the session after copying** — skills are loaded at startup.
@@ -51,6 +55,9 @@ git clone https://github.com/hwjacko/jackdaw-skills.git
 mkdir -p ~/.agents/skills
 cp -r jackdaw-skills/skills/business-analyst/* ~/.agents/skills/
 cp -r jackdaw-skills/skills/data-analyst/* ~/.agents/skills/
+cp -r jackdaw-skills/skills/product-manager/* ~/.agents/skills/
+cp -r jackdaw-skills/skills/product-owner/* ~/.agents/skills/
+cp -r jackdaw-skills/skills/user-research/* ~/.agents/skills/
 ```
 
 Invoke with `$use-case-extraction` or describe the task. The `.claude-plugin/marketplace.json` manifest is Claude Code only; Codex ignores it.
@@ -88,9 +95,50 @@ If those decisions are absent, it produces a blocked setup report and the files 
 Read-only access, tenant scope, and limits must be enforced and tested through the chosen runtime.
 The query context records runtime controls as `not_assessed` and grants no query access.
 
+## Product planning and backlog work
+
+| Function | Skill | Output |
+| --- | --- | --- |
+| Product Manager | `problem-framing` | problem, source evidence, intended outcomes, and measures |
+| Product Manager | `opportunity-assessment` | needs, options, assumptions, tests, and a visual opportunity map |
+| Product Manager | `outcome-roadmap` | Now/Next/Later roadmap with measures, review conditions, and a visual sequence |
+| Product Manager | `outcome-review` | actual results, comparison limits, and a proposed next decision |
+| Product Owner | `backlog-prioritisation` | explained backlog order, prerequisites, and unresolved comparisons |
+| Product Owner | `backlog-refinement` | review findings and proposed edits to existing stories |
+| Product Owner | `release-scope` | candidate release, exclusions, dependencies, conditions, and a visual scope map |
+
+Start with a problem frame. Assess options and plan intended outcomes before constructing use cases and stories.
+Review and order the existing backlog, propose release scope, then compare results with the intended outcomes.
+The Business Analyst skills remain the route for use case extraction and story construction.
+
+Example request: "Build a visual outcome roadmap from these goals. Keep unconfirmed targets and dates clearly labelled."
+
+Opportunity Assessment, Outcome Roadmap, and Release Scope produce Mermaid in Markdown and matching draw.io XML.
+PNG is optional when the drawio CLI is installed. Roadmaps use undated horizons unless source dates are supplied.
+The skills retain source IDs, distinguish evidence from assumptions, and leave missing estimates or measures unknown.
+They prepare local recommendations. External backlog changes and release actions require a user instruction.
+
+## Evidence, measures, and change review
+
+| Function | Skill | Output |
+| --- | --- | --- |
+| User Research | `research-synthesis` | sourced observations, interpreted findings, contrary evidence, sample limits, and an evidence map |
+| Data Analyst | `metric-definition` | measure rules, source fields, calculation cases, comparability limits, and optional SQL |
+| Business Analyst | `change-impact-analysis` | downstream review paths, proposed associations, missing links, and an impact map |
+
+Research synthesis supplies evidence for problem framing. Metric definition specifies how an outcome will be measured.
+Change-impact analysis follows documented links when a source, rule, metric, or requirement changes.
+
+Problem, use-case, story, requirements-map, and outcome-review templates retain source IDs and trace-link tables.
+Links run from source to dependent. `recorded` means an explicit source link; `proposed` means an association needing review.
+These statuses do not approve a business decision or prove a test passed. Missing IDs remain gaps.
+The impact helper reads a supplied JSON register. It does not discover unrecorded work or claim complete coverage.
+
+Research and impact maps include Mermaid and matching draw.io XML. PNG is optional when drawio is available.
+
 ## Optional: styled diagrams
 
-The [VISUAL] skills (user-flow, requirements-map) produce Mermaid and draw.io by default — no dependencies. For presentation-grade, on-brand diagrams (52 types, brand colors/fonts from a URL, SVG/PNG export), install the optional [diagram-design](https://github.com/cathrynlavery/diagram-design) skill:
+The main diagram outputs use Mermaid and draw.io — no dependencies. For presentation-grade, on-brand diagrams (52 types, brand colors/fonts from a URL, SVG/PNG export), install the optional [diagram-design](https://github.com/cathrynlavery/diagram-design) skill:
 
 ```text
 /plugin marketplace add cathrynlavery/diagram-design
@@ -118,6 +166,8 @@ python3 -m unittest discover -s tests -v
 The tests check JIRA behavior with simulated responses. They also check plugin paths, skill references, and diagram examples.
 Schema examples are checked against a local SQLite database built from the supplied fixture.
 Setup tests check schema handoff rejection, confirmed context, and expected tenant-specific counts.
+Product examples check diagram consistency, source IDs, release dependencies, and outcome calculations.
+Evidence tests check distinct participant counts, contrary observations, metric edge cases, and recorded or proposed impact paths.
 
 ## Roadmap
 
@@ -125,7 +175,11 @@ Setup tests check schema handoff rejection, confirmed context, and expected tena
 - **Phase 1B** — Business Analyst: User Flow [VISUAL], Requirements Map [VISUAL] (Mermaid + draw.io XML always; PNG when the drawio CLI is installed; drawio files import into Lucidchart)
 - **Phase 1C** — Business Analyst: SWOT analysis
 - **Phase 1D** — Business Analyst: Requirement Construction II (JIRA integration; local file fallback)
+- **Phase 1E** — Business Analyst: Change-Impact Analysis, with documented trace links and an impact map.
 - **Phase 2A** — Data Analyst: Schema Map. Read-only discovery, assumed business meanings, SME questions, and a JSON handoff model.
 - **Phase 2B** — Data Analyst: Schema Map [VISUAL]. Diagrams that preserve relationship status and open questions.
 - **Phase 2C** — Text-to-SQL Setup: confirmed schema handoff, MCP or SQL-tool setup, access rules, and query evaluation.
-- **Later scope** — Product Manager / Product Owner TBC.
+- **Phase 2D** — Data Analyst: Metric Definition, with population rules, source fields, and calculation checks.
+- **Phase 3** — Product Manager: Problem Framing, Opportunity Assessment, Outcome Roadmap, and Outcome Review.
+- **Phase 4** — Product Owner: Backlog Prioritisation, Backlog Refinement, and Release Scope.
+- **Phase 5** — User Research: Research Synthesis, with source observations, contrary evidence, and an evidence map.

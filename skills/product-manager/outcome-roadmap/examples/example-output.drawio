@@ -1,0 +1,37 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Support Portal — Outcome Roadmap">
+    <mxGraphModel grid="1" page="1" pageWidth="1600" pageHeight="900">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="now" value="Now" style="swimlane;html=1;startSize=40;fillColor=#f5f7fa;strokeColor=#bac3cf;" vertex="1" parent="1">
+          <mxGeometry x="40" y="90" width="350" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="next" value="Next" style="swimlane;html=1;startSize=40;fillColor=#f5f7fa;strokeColor=#bac3cf;" vertex="1" parent="1">
+          <mxGeometry x="540" y="90" width="350" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="later" value="Later" style="swimlane;html=1;startSize=40;fillColor=#f5f7fa;strokeColor=#bac3cf;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="90" width="350" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="SPOC001" value="SPOC001 Fewer publishing attempts need help&lt;br/&gt;proposed; baseline 30%; target 15% proposed" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f2ff;strokeColor=#536779;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="65" y="180" width="300" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="SPOC002" value="SPOC002 Faster first publication&lt;br/&gt;proposed; baseline and target unknown" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f2ff;strokeColor=#536779;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="565" y="180" width="300" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="SPOC003" value="SPOC003 Approved content stays current&lt;br/&gt;proposed; baseline and target unknown" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f2ff;strokeColor=#536779;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1065" y="180" width="300" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="edge1" value="proposed&lt;br/&gt;sequence" style="edgeStyle=orthogonalEdgeStyle;html=1;whiteSpace=wrap;fontSize=11;dashed=1;" edge="1" parent="1" source="SPOC001" target="SPOC002">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge2" value="proposed&lt;br/&gt;sequence" style="edgeStyle=orthogonalEdgeStyle;html=1;whiteSpace=wrap;fontSize=11;dashed=1;" edge="1" parent="1" source="SPOC002" target="SPOC003">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="legend" value="Roadmap proposed. Now, Next, and Later show relative order; no dates are implied.&lt;br/&gt;Dashed arrows: proposed sequence. No hard technical prerequisite is supplied." style="text;html=1;whiteSpace=wrap;align=left;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="1400" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

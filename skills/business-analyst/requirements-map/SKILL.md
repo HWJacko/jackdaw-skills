@@ -19,6 +19,7 @@ Show the full requirements structure of a project on one page: EPICs, their use 
 1. Read the source files. Build the hierarchy: project → EPIC → use case → user story.
    - Link each story through its `Source use case:` field. Link use cases through their EPIC tables.
    - If a source link is absent, unknown, or missing from the input, list the affected ID under `Unmapped items`. Count it as a gap. Do not guess a parent.
+   - Retain supplied outcome, test, and result links in a separate trace-link table. Keep the requirements tree unchanged.
 2. Every node shows its ID and a short name. IDs come from the source files — do not invent them.
 3. If a use case has no user stories yet, mark it `(no stories)`. This is a gap, not an error.
 4. If an EPIC has no use cases, mark it `(empty)`.

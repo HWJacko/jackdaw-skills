@@ -1,0 +1,29 @@
+{
+  "scope": "Selected synthetic research, product, metric, and backlog records in input.md only",
+  "changed_ids": [
+    "SPMT001"
+  ],
+  "review_required": [
+    "SPOC001",
+    "SPRS001",
+    "SPTC001",
+    "SPUC001",
+    "SPUS001"
+  ],
+  "possible_review": [
+    "SPUS004"
+  ],
+  "gaps": [
+    {
+      "from": "SPOC001",
+      "to": "SPUC999",
+      "relationship": "defines",
+      "status": "recorded",
+      "source": "input.md SPOC001",
+      "missing_ids": [
+        "SPUC999"
+      ]
+    }
+  ],
+  "coverage": "partial"
+}

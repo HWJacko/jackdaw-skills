@@ -23,6 +23,8 @@ Turn one use case into atomic, testable user stories stored in a local file.
 5. IDs: `[PN]US001`, sequential per project. When appending, read the existing IDs and continue after the highest number. This is a local ID. It is not the JIRA key; JIRA keys are added only when a JIRA connection is available (Requirement Construction II).
 6. Each story must be testable on its own. If a story needs another story to make sense, split again.
 7. Record `Source use case: [PN]UC###` under each story heading. Use the source ID. If it is absent, write `Source use case: unknown`. Do not invent an ID.
+8. Carry supplied outcome IDs and test or result references into the source fields. Keep absent references `unknown`.
+   Record explicit source → dependent links in the trace-link table. Do not create test or result IDs without source records.
 
 ## Output
 
