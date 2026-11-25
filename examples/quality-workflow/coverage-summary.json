@@ -1,0 +1,89 @@
+{
+  "scope": "Evidence Check synthetic query workflow; only the declared criteria and named fixture are assessed",
+  "coverage": "supplied_criteria_only",
+  "criteria": [
+    {
+      "id": "ECUS001.AC1",
+      "story_id": "ECUS001",
+      "status": "agreed",
+      "mapped_tests": [
+        "ECTC001"
+      ],
+      "verified": true,
+      "gaps": []
+    },
+    {
+      "id": "ECUS001.AC2",
+      "story_id": "ECUS001",
+      "status": "conflicting",
+      "mapped_tests": [
+        "ECTC002"
+      ],
+      "verified": false,
+      "gaps": [
+        "criterion is conflicting",
+        "ECTC002: test design blocked; no current result"
+      ]
+    },
+    {
+      "id": "ECUS001.AC3",
+      "story_id": "ECUS001",
+      "status": "agreed",
+      "mapped_tests": [
+        "ECTC003"
+      ],
+      "verified": false,
+      "gaps": [
+        "ECTC003: no current result"
+      ]
+    },
+    {
+      "id": "ECUS001.AC4",
+      "story_id": "ECUS001",
+      "status": "unknown",
+      "mapped_tests": [],
+      "verified": false,
+      "gaps": [
+        "criterion is unknown",
+        "no mapped tests"
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "id": "ECTC001",
+      "design_status": "ready",
+      "result_id": "ECRS001",
+      "recorded_status": "passed",
+      "current": true,
+      "gaps": []
+    },
+    {
+      "id": "ECTC002",
+      "design_status": "blocked",
+      "result_id": null,
+      "recorded_status": "not_run",
+      "current": false,
+      "gaps": [
+        "test design blocked",
+        "no current result"
+      ]
+    },
+    {
+      "id": "ECTC003",
+      "design_status": "ready",
+      "result_id": null,
+      "recorded_status": "not_run",
+      "current": false,
+      "gaps": [
+        "no current result"
+      ]
+    }
+  ],
+  "gaps": [],
+  "summary": {
+    "criteria": 4,
+    "mapped": 3,
+    "verified": 1
+  }
+}

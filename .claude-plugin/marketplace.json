@@ -1,13 +1,13 @@
 {
   "name": "jackdaw-skills",
   "owner": { "name": "hwjacko" },
-  "description": "Business, data, product, and research skills: evidence, metrics, requirements, impact analysis, roadmaps, and backlog planning.",
+  "description": "Business, data, product, research, and QA skills: evidence, metrics, requirements, roadmaps, acceptance tests, and coverage maps.",
   "plugins": [
     {
       "name": "jackdaw-skills",
       "source": "./",
-      "skills": ["./skills/business-analyst/", "./skills/data-analyst/", "./skills/product-manager/", "./skills/product-owner/", "./skills/user-research/"],
-      "description": "Business, data, product, and research skills: evidence, metrics, requirements, impact analysis, roadmaps, and backlog planning."
+      "skills": ["./skills/business-analyst/", "./skills/data-analyst/", "./skills/product-manager/", "./skills/product-owner/", "./skills/user-research/", "./skills/quality-assurance/"],
+      "description": "Business, data, product, research, and QA skills: evidence, metrics, requirements, roadmaps, acceptance tests, and coverage maps."
     }
   ]
 }

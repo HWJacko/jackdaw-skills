@@ -25,6 +25,7 @@ Derive `[PN]` from the project. Read [templates.md](templates.md). Preserve all 
    Do not add unrelated features. If a necessary item has no ID, record a gap instead of inventing an approved story.
 5. State release conditions and their evidence: user acceptance, required quality checks, operational needs, and unresolved business decisions.
    Mark unrun checks `not_run`. Missing evidence cannot establish that work is done or approved for release.
+   Retain supplied criterion, test, and result IDs with their revisions. Mapped coverage alone is not passing evidence.
 6. Use supplied capacity and estimates only. If absent, leave schedule and feasibility unconfirmed.
    Do not create a release date from item count or priority.
 7. Draw the candidate scope and its supplied dependencies.

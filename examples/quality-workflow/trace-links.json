@@ -1,0 +1,248 @@
+{
+  "trace_version": 1,
+  "scope": "Supplied Evidence Check worked-example records only",
+  "nodes": [
+    {
+      "id": "ECEV001",
+      "kind": "evidence",
+      "label": "Research source A",
+      "source": "input.md ECEV001"
+    },
+    {
+      "id": "ECEV002",
+      "kind": "evidence",
+      "label": "Research source B",
+      "source": "input.md ECEV002"
+    },
+    {
+      "id": "ECOB001",
+      "kind": "observation",
+      "label": "Denominator observation",
+      "source": "workflow.md stage 1"
+    },
+    {
+      "id": "ECOB002",
+      "kind": "observation",
+      "label": "Missing-flag observation",
+      "source": "workflow.md stage 1"
+    },
+    {
+      "id": "ECRF001",
+      "kind": "finding",
+      "label": "Interpreted population finding",
+      "source": "workflow.md stage 1"
+    },
+    {
+      "id": "ECPR001",
+      "kind": "problem",
+      "label": "Report population problem",
+      "source": "workflow.md stage 2"
+    },
+    {
+      "id": "ECOC001",
+      "kind": "outcome",
+      "label": "Analysts understand the population",
+      "source": "workflow.md stage 3"
+    },
+    {
+      "id": "ECMT001",
+      "kind": "metric",
+      "label": "Incomplete help-rate definition",
+      "source": "workflow.md stage 3"
+    },
+    {
+      "id": "ECUC001",
+      "kind": "use_case",
+      "label": "Review authorised tenant report",
+      "source": "workflow.md stage 4"
+    },
+    {
+      "id": "ECUS001",
+      "kind": "story",
+      "label": "Inspect the report population",
+      "source": "workflow.md stage 5"
+    },
+    {
+      "id": "ECUS001.AC1",
+      "kind": "criterion",
+      "label": "Acceptance criterion 1",
+      "source": "workflow.md stage 5"
+    },
+    {
+      "id": "ECUS001.AC2",
+      "kind": "criterion",
+      "label": "Acceptance criterion 2",
+      "source": "workflow.md stage 5"
+    },
+    {
+      "id": "ECUS001.AC3",
+      "kind": "criterion",
+      "label": "Acceptance criterion 3",
+      "source": "workflow.md stage 5"
+    },
+    {
+      "id": "ECUS001.AC4",
+      "kind": "criterion",
+      "label": "Acceptance criterion 4",
+      "source": "workflow.md stage 5"
+    },
+    {
+      "id": "ECTC001",
+      "kind": "test",
+      "label": "Test case 1",
+      "source": "workflow.md stage 6"
+    },
+    {
+      "id": "ECTC002",
+      "kind": "test",
+      "label": "Test case 2",
+      "source": "workflow.md stage 6"
+    },
+    {
+      "id": "ECTC003",
+      "kind": "test",
+      "label": "Test case 3",
+      "source": "workflow.md stage 6"
+    },
+    {
+      "id": "ECRS001",
+      "kind": "result",
+      "label": "Actual SQL fixture result",
+      "source": "fixture-result.json"
+    },
+    {
+      "id": "workflow.md#8-outcome-and-release-review",
+      "kind": "review",
+      "label": "Outcome and release review",
+      "source": "workflow.md stage 8"
+    }
+  ],
+  "links": [
+    {
+      "from": "ECEV001",
+      "to": "ECOB001",
+      "relationship": "source",
+      "status": "recorded",
+      "source": "workflow.md explicit source and verification references"
+    },
+    {
+      "from": "ECEV002",
+      "to": "ECOB002",
+      "relationship": "source",
+      "status": "recorded",
+      "source": "workflow.md explicit source and verification references"
+    },
+    {
+      "from": "ECOB001",
+      "to": "ECRF001",
+      "relationship": "supports",
+      "status": "recorded",
+      "source": "workflow.md explicit source and verification references"
+    },
+    {
+      "from": "ECOB002",
+      "to": "ECRF001",
+      "relationship": "supports",
+      "status": "recorded",
+      "source": "workflow.md explicit source and verification references"
+    },
+    {
+      "from": "ECRF001",
+      "to": "ECPR001",
+      "relationship": "informs",
+      "status": "recorded",
+      "source": "workflow.md explicit source and verification references"
+    },
+    {
+      "from": "ECPR001",
+      "to": "ECOC001",
+      "relationship": "motivates",
+      "status": "recorded",
+      "source": "workflow.md explicit source and verification references"
+    },
+    {
+      "from": "ECMT001",
+      "to": "ECOC001",
+      "relationship": "proposed measure for",
+      "status": "recorded",
+      "source": "workflow.md explicit source and verification references"
+    },
+    {
+      "from": "ECOC001",
+      "to": "ECUC001",
+      "relationship": "defines",
+      "status": "recorded",
+      "source": "workflow.md explicit source and verification references"
+    },
+    {
+      "from": "ECUC001",
+      "to": "ECUS001",
+      "relationship": "implemented by",
+      "status": "recorded",
+      "source": "workflow.md explicit source and verification references"
+    },
+    {
+      "from": "ECUS001",
+      "to": "ECUS001.AC1",
+      "relationship": "criterion",
+      "status": "recorded",
+      "source": "workflow.md explicit source and verification references"
+    },
+    {
+      "from": "ECUS001",
+      "to": "ECUS001.AC2",
+      "relationship": "criterion",
+      "status": "recorded",
+      "source": "workflow.md explicit source and verification references"
+    },
+    {
+      "from": "ECUS001",
+      "to": "ECUS001.AC3",
+      "relationship": "criterion",
+      "status": "recorded",
+      "source": "workflow.md explicit source and verification references"
+    },
+    {
+      "from": "ECUS001",
+      "to": "ECUS001.AC4",
+      "relationship": "criterion",
+      "status": "recorded",
+      "source": "workflow.md explicit source and verification references"
+    },
+    {
+      "from": "ECUS001.AC1",
+      "to": "ECTC001",
+      "relationship": "checked by",
+      "status": "recorded",
+      "source": "workflow.md explicit source and verification references"
+    },
+    {
+      "from": "ECUS001.AC2",
+      "to": "ECTC002",
+      "relationship": "checked by",
+      "status": "recorded",
+      "source": "workflow.md explicit source and verification references"
+    },
+    {
+      "from": "ECUS001.AC3",
+      "to": "ECTC003",
+      "relationship": "checked by",
+      "status": "recorded",
+      "source": "workflow.md explicit source and verification references"
+    },
+    {
+      "from": "ECTC001",
+      "to": "ECRS001",
+      "relationship": "result",
+      "status": "recorded",
+      "source": "workflow.md explicit source and verification references"
+    },
+    {
+      "from": "ECRS001",
+      "to": "workflow.md#8-outcome-and-release-review",
+      "relationship": "reviewed by",
+      "status": "recorded",
+      "source": "workflow.md explicit source and verification references"
+    }
+  ]
+}

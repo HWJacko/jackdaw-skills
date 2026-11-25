@@ -9,6 +9,7 @@ A shareable repository of agent skills for business and product functions. Publi
 - Product Manager (Phase 3)
 - Product Owner (Phase 4)
 - User Research (Phase 5)
+- Quality Assurance (Phase 6)
 
 ## Structure
 
@@ -44,6 +45,7 @@ cp -r jackdaw-skills/skills/data-analyst/* ~/.claude/skills/
 cp -r jackdaw-skills/skills/product-manager/* ~/.claude/skills/
 cp -r jackdaw-skills/skills/product-owner/* ~/.claude/skills/
 cp -r jackdaw-skills/skills/user-research/* ~/.claude/skills/
+cp -r jackdaw-skills/skills/quality-assurance/* ~/.claude/skills/
 ```
 
 Or use `<project>/.claude/skills/` for one project only (committable, so the team gets it too). Skills run as `/use-case-extraction` etc. **Restart the session after copying** — skills are loaded at startup.
@@ -58,6 +60,7 @@ cp -r jackdaw-skills/skills/data-analyst/* ~/.agents/skills/
 cp -r jackdaw-skills/skills/product-manager/* ~/.agents/skills/
 cp -r jackdaw-skills/skills/product-owner/* ~/.agents/skills/
 cp -r jackdaw-skills/skills/user-research/* ~/.agents/skills/
+cp -r jackdaw-skills/skills/quality-assurance/* ~/.agents/skills/
 ```
 
 Invoke with `$use-case-extraction` or describe the task. The `.claude-plugin/marketplace.json` manifest is Claude Code only; Codex ignores it.
@@ -136,6 +139,23 @@ The impact helper reads a supplied JSON register. It does not discover unrecorde
 
 Research and impact maps include Mermaid and matching draw.io XML. PNG is optional when drawio is available.
 
+## Acceptance testing and coverage
+
+Use `acceptance-test-design` to derive versioned cases from supplied stories, criteria, and business rules.
+It records normal, error, and boundary cases where the source supports an expected result.
+Conflicting rules and missing oracles remain blocked. New unrun cases have no result record.
+
+Use `test-coverage-map` to connect stories and criteria to tests and execution evidence.
+The map separates mapped coverage from current passing evidence. Old results do not verify changed criteria or test revisions.
+Unknown, proposed, and conflicting criteria remain unresolved. The map includes Mermaid and matching draw.io XML.
+
+The local helper reads a JSON test register. It does not execute cases or approve a release.
+All mapped tests are required within that register. Counts describe the supplied criteria, not universal coverage.
+
+See the [full worked example](examples/quality-workflow/workflow.md) for research through outcome review.
+It retains missing evidence and conflicting rules. One actual SQL fixture case passes; other checks remain unrun or unresolved.
+The example is an author-run exercise. It is not an independent model evaluation or a target-application acceptance run.
+
 ## Optional: styled diagrams
 
 The main diagram outputs use Mermaid and draw.io — no dependencies. For presentation-grade, on-brand diagrams (52 types, brand colors/fonts from a URL, SVG/PNG export), install the optional [diagram-design](https://github.com/cathrynlavery/diagram-design) skill:
@@ -168,6 +188,8 @@ Schema examples are checked against a local SQLite database built from the suppl
 Setup tests check schema handoff rejection, confirmed context, and expected tenant-specific counts.
 Product examples check diagram consistency, source IDs, release dependencies, and outcome calculations.
 Evidence tests check distinct participant counts, contrary observations, metric edge cases, and recorded or proposed impact paths.
+QA tests check mappings, current result selection, version changes, and unresolved criteria.
+The worked example reruns its named SQLite fixture and checks its source links and coverage summary.
 
 ## Roadmap
 
@@ -183,3 +205,4 @@ Evidence tests check distinct participant counts, contrary observations, metric 
 - **Phase 3** — Product Manager: Problem Framing, Opportunity Assessment, Outcome Roadmap, and Outcome Review.
 - **Phase 4** — Product Owner: Backlog Prioritisation, Backlog Refinement, and Release Scope.
 - **Phase 5** — User Research: Research Synthesis, with source observations, contrary evidence, and an evidence map.
+- **Phase 6** — Quality Assurance: Acceptance Test Design and Test Coverage Map, with versioned execution evidence.

@@ -1,0 +1,56 @@
+{
+  "scope": "Supplied synthetic criteria and test records at revision 1",
+  "coverage": "supplied_criteria_only",
+  "criteria": [
+    {
+      "id": "SPUS001.AC1",
+      "story_id": "SPUS001",
+      "status": "agreed",
+      "mapped_tests": [
+        "SPTC001"
+      ],
+      "verified": true,
+      "gaps": []
+    },
+    {
+      "id": "SPUS002.AC1",
+      "story_id": "SPUS002",
+      "status": "conflicting",
+      "mapped_tests": [
+        "SPTC002"
+      ],
+      "verified": false,
+      "gaps": [
+        "criterion is conflicting",
+        "SPTC002: test design blocked; no current result"
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "id": "SPTC001",
+      "design_status": "ready",
+      "result_id": "SPRS001",
+      "recorded_status": "passed",
+      "current": true,
+      "gaps": []
+    },
+    {
+      "id": "SPTC002",
+      "design_status": "blocked",
+      "result_id": null,
+      "recorded_status": "not_run",
+      "current": false,
+      "gaps": [
+        "test design blocked",
+        "no current result"
+      ]
+    }
+  ],
+  "gaps": [],
+  "summary": {
+    "criteria": 2,
+    "mapped": 2,
+    "verified": 1
+  }
+}

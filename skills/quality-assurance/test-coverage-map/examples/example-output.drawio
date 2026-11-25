@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Support Portal — Test Coverage">
+    <mxGraphModel grid="1" page="1" pageWidth="1500" pageHeight="1000">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="SPUS001" value="SPUS001 source story" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#536779;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="180" width="250" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="SPUS002" value="SPUS002 source story" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#536779;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="480" width="250" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="c1" value="SPUS001.AC1&lt;br/&gt;agreed; mapped" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f2ff;strokeColor=#536779;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="380" y="100" width="250" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="c2" value="SPUS002.AC1&lt;br/&gt;conflicting; mapped" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#536779;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="380" y="300" width="250" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="SPTC001" value="SPTC001 revision 1&lt;br/&gt;design ready; passed" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f2ff;strokeColor=#536779;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="720" y="100" width="250" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="SPRS001" value="SPRS001&lt;br/&gt;passed; fixture scope only" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#536779;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="100" width="250" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="SPTC002" value="SPTC002 revision 1&lt;br/&gt;design blocked; not_run" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f2ff;strokeColor=#536779;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="720" y="300" width="250" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="edge1" value="criterion" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=11;" edge="1" parent="1" source="SPUS001" target="c1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge2" value="criterion" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=11;" edge="1" parent="1" source="SPUS002" target="c2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge3" value="checked by" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=11;" edge="1" parent="1" source="c1" target="SPTC001">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge4" value="selected result" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=11;" edge="1" parent="1" source="SPTC001" target="SPRS001">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge5" value="checked by" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=11;" edge="1" parent="1" source="c2" target="SPTC002">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="legend" value="Mapped coverage is separate from execution evidence.&lt;br/&gt;Only selected fixture results are shown. Unrun cases have no result node. No release approval is implied." style="text;html=1;whiteSpace=wrap;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="1350" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

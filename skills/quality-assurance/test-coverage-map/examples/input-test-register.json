@@ -1,0 +1,59 @@
+{
+  "coverage_version": 1,
+  "scope": "Supplied synthetic criteria and test records at revision 1",
+  "criteria": [
+    {
+      "id": "SPUS001.AC1",
+      "story_id": "SPUS001",
+      "revision": "1",
+      "status": "agreed",
+      "source": "input.md current criteria"
+    },
+    {
+      "id": "SPUS002.AC1",
+      "story_id": "SPUS002",
+      "revision": "1",
+      "status": "conflicting",
+      "source": "input.md current criteria"
+    }
+  ],
+  "tests": [
+    {
+      "id": "SPTC001",
+      "revision": "1",
+      "criterion_refs": [
+        {
+          "id": "SPUS001.AC1",
+          "revision": "1"
+        }
+      ],
+      "design_status": "ready",
+      "current_result_id": "SPRS001",
+      "source": "input.md supplied record"
+    },
+    {
+      "id": "SPTC002",
+      "revision": "1",
+      "criterion_refs": [
+        {
+          "id": "SPUS002.AC1",
+          "revision": "1"
+        }
+      ],
+      "design_status": "blocked",
+      "current_result_id": null,
+      "source": "input.md publication conflict"
+    }
+  ],
+  "results": [
+    {
+      "id": "SPRS001",
+      "test_id": "SPTC001",
+      "test_revision": "1",
+      "status": "passed",
+      "environment": "synthetic draft-validator fixture",
+      "observed": "An empty title was rejected in the supplied synthetic fixture record. No current application run is claimed.",
+      "source": "input.md supplied execution record"
+    }
+  ]
+}
