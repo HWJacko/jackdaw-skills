@@ -65,14 +65,40 @@ cp -r jackdaw-skills/skills/quality-assurance/* ~/.agents/skills/
 
 Invoke with `$use-case-extraction` or describe the task. The `.claude-plugin/marketplace.json` manifest is Claude Code only; Codex ignores it.
 
+## Output folders
+
+Each skill writes to `output/<skill-name>/` in the working project, unless you give another path.
+The skill creates its folder before writing files. Reports, data files, and diagrams stay together.
+For example:
+
+```text
+output/
+├── use-case-extraction/
+│   └── APP-use-cases.md
+├── requirement-construction/
+│   └── APP-user-stories.md
+├── user-flow/
+│   ├── APP-user-flow-APPEP001.md
+│   └── APP-user-flow-APPEP001.drawio
+└── requirements-map/
+    ├── APP-requirements-map.md
+    └── APP-requirements-map.drawio
+```
+
+Skills read inputs from the supplied paths or the producing skill's folder.
+For example, Test Coverage Map reads `output/acceptance-test-design/[PN]-test-register.json`
+and writes its diagrams to `output/test-coverage-map/`.
+Jira integration keeps a separate stories copy in `output/requirement-construction-jira/`
+so it can retain issue keys and pending markers between runs.
+
 ## Database schema discovery
 
 Use `schema-map` to inspect a database through an existing read-only SQL tool, or supply SQL schema files.
 No new database connector is required. The skill produces:
 
-- `output/[PN]-schema-model.json`: database structure, claims, evidence, questions, and handoff status.
-- `output/[PN]-schema-map.md`: the assumed schema and its limits.
-- `output/[PN]-sme-questions.md`: decisions for a subject matter expert (SME).
+- `output/schema-map/[PN]-schema-model.json`: database structure, claims, evidence, questions, and handoff status.
+- `output/schema-map/[PN]-schema-map.md`: the assumed schema and its limits.
+- `output/schema-map/[PN]-sme-questions.md`: decisions for a subject matter expert (SME).
 
 Example request: "Inspect this schema for paid revenue by customer. Show assumed joins and questions for the SME."
 

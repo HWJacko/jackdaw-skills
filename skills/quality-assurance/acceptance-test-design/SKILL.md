@@ -35,8 +35,11 @@ Keep source story and criterion IDs. Qualify local criteria, such as `SPUS001.AC
 
 ## Output
 
-- `output/[PN]-acceptance-tests.md`: source criteria, test steps, expected results, blocked cases, and decisions needed.
-- `output/[PN]-test-register.json`: criteria, versioned test references, and any supplied or actually observed results.
+Create `output/acceptance-test-design/` in the working project before writing files.
+Use this folder for all files this skill produces, unless the user gives another path.
+
+- `output/acceptance-test-design/[PN]-acceptance-tests.md`: source criteria, test steps, expected results, blocked cases, and decisions needed.
+- `output/acceptance-test-design/[PN]-test-register.json`: criteria, versioned test references, and any supplied or actually observed results.
 
 The register can feed Test Coverage Map. It also retains source links for Change-Impact Analysis.
 Do not change source criteria, Jira issues, or release decisions without instruction.

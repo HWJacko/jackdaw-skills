@@ -24,8 +24,13 @@ You can also set these environment variables. They take precedence over `.env` v
 
 ## Run
 
+Create `output/requirement-construction-jira/`. On the first run, copy the source file from
+`output/requirement-construction/[PN]-user-stories.md` into this folder.
+Use the existing Jira copy for later runs. Do not overwrite recorded keys or pending markers.
+Reconcile source changes by local ID before continuing.
+
 ```bash
-python3 "$JIRA_SKILL_DIR/scripts/create_stories.py" "output/[PN]-user-stories.md"
+python3 "$JIRA_SKILL_DIR/scripts/create_stories.py" "output/requirement-construction-jira/[PN]-user-stories.md"
 ```
 
 The script saves each returned key in the local heading and prints `LOCAL-ID -> JIRA-KEY`. It skips stories with recorded keys.

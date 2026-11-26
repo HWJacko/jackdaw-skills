@@ -27,7 +27,10 @@ Show the full requirements structure of a project on one page: EPICs, their use 
 
 ## Output
 
-Write all of these to `output/`, basename `[PN]-requirements-map`:
+Create `output/requirements-map/` in the working project before writing files.
+Use this folder for all files this skill produces, unless the user gives another path.
+
+Write all of these to `output/requirements-map/`, basename `[PN]-requirements-map`:
 
 1. **Markdown with Mermaid** — `[PN]-requirements-map.md` with a `mindmap` block plus a coverage summary (counts of EPICs, use cases, stories, gaps). Always produced. Renders on GitHub with no tooling.
 2. **draw.io XML** — `[PN]-requirements-map.drawio`. Always produced. Tree layout, same hierarchy and IDs. Importable into Lucidchart (File → Import).

@@ -27,7 +27,10 @@ Show the path a stakeholder takes through the system as a diagram. Business and 
 
 ## Output
 
-Write all of these to `output/`, basename `[PN]-user-flow-[EPIC-ID]`:
+Create `output/user-flow/` in the working project before writing files.
+Use this folder for all files this skill produces, unless the user gives another path.
+
+Write all of these to `output/user-flow/`, basename `[PN]-user-flow-[EPIC-ID]`:
 
 1. **Markdown with Mermaid** — `[PN]-user-flow-[EPIC-ID].md` with one `flowchart TD` block per diagram, a one-line title and a short legend. Always produced. Renders on GitHub with no tooling.
 2. **draw.io XML** — `[PN]-user-flow-[EPIC-ID].drawio`. Always produced. Plain text, diffable, and importable into Lucidchart later (File → Import).

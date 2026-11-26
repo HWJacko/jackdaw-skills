@@ -33,7 +33,10 @@ Read [templates.md](templates.md). Preserve existing IDs and cite source locatio
 
 ## Output
 
-Write `output/[PN]-product-problem.md`.
+Create `output/problem-framing/` in the working project before writing files.
+Use this folder for all files this skill produces, unless the user gives another path.
+
+Write `output/problem-framing/[PN]-product-problem.md`.
 Include the problem, affected users, evidence, intended outcomes, measures, assumptions, and open questions.
 Use `[PN]PR###` for new problems and `[PN]OC###` for new outcomes. Continue existing project numbering.
 Do not create use case, story, or Jira IDs for proposed product outcomes.

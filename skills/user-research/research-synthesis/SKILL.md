@@ -36,8 +36,11 @@ If raw research is absent, report the gap. Do not invent a study or customer evi
 
 ## Output
 
-- `output/[PN]-research-synthesis.md`: source register, observations, findings, contrary evidence, limits, questions, trace links, and Mermaid.
-- `output/[PN]-research-synthesis.drawio`: the same evidence map as draw.io XML.
+Create `output/research-synthesis/` in the working project before writing files.
+Use this folder for all files this skill produces, unless the user gives another path.
+
+- `output/research-synthesis/[PN]-research-synthesis.md`: source register, observations, findings, contrary evidence, limits, questions, trace links, and Mermaid.
+- `output/research-synthesis/[PN]-research-synthesis.drawio`: the same evidence map as draw.io XML.
 - Optional PNG when `drawio` is available: `drawio -x -f png -o <out.png> <in.drawio>`.
 
 Use `[PN]OB###` for observations and `[PN]RF###` for findings. Continue existing project numbering.

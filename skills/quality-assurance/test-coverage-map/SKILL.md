@@ -19,7 +19,7 @@ If no register exists, assemble it from explicit supplied records. Do not invent
 2. Resolve this skill folder and run the local helper:
 
    ```bash
-   python3 <absolute-skill-folder>/scripts/summarise_coverage.py output/[PN]-test-register.json
+   python3 <absolute-skill-folder>/scripts/summarise_coverage.py output/acceptance-test-design/[PN]-test-register.json
    ```
 
    The helper reads local JSON. It does not run tests or inspect the target application.
@@ -40,8 +40,11 @@ If no register exists, assemble it from explicit supplied records. Do not invent
 
 ## Output
 
-- `output/[PN]-test-coverage.md`: scope, criteria, mapped cases, current evidence, gaps, and Mermaid `flowchart LR`.
-- `output/[PN]-test-coverage.drawio`: the same coverage graph as draw.io XML.
+Create `output/test-coverage-map/` in the working project before writing files.
+Use this folder for all files this skill produces, unless the user gives another path.
+
+- `output/test-coverage-map/[PN]-test-coverage.md`: scope, criteria, mapped cases, current evidence, gaps, and Mermaid `flowchart LR`.
+- `output/test-coverage-map/[PN]-test-coverage.drawio`: the same coverage graph as draw.io XML.
 - Optional PNG when `drawio` is available: `drawio -x -f png -o <out.png> <in.drawio>`.
 
 Always produce Markdown and draw.io XML. Missing PNG tooling does not block the map.

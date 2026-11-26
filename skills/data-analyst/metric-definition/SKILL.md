@@ -38,8 +38,11 @@ Preserve outcome IDs and existing metric IDs. Use `[PN]MT###` only for a new met
 
 ## Output
 
-Write `output/[PN]-metric-definition.md`, including source links and verification cases.
-When a query can be specified, also write `output/[PN]-metric-query.sql` with named value parameters.
+Create `output/metric-definition/` in the working project before writing files.
+Use this folder for all files this skill produces, unless the user gives another path.
+
+Write `output/metric-definition/[PN]-metric-definition.md`, including source links and verification cases.
+When a query can be specified, also write `output/metric-definition/[PN]-metric-query.sql` with named value parameters.
 Mark unknown rules and unrun checks. A supplied schema alone cannot establish an agreed metric or runtime access.
 Use a field-lineage diagram when several source objects make the calculation difficult to follow.
 

@@ -34,8 +34,11 @@ An opportunity is a customer need or difficulty. A solution is one possible resp
 
 ## Output
 
-- `output/[PN]-opportunity-assessment.md`: assessment tables, recommendation, questions, and Mermaid `flowchart LR`.
-- `output/[PN]-opportunity-assessment.drawio`: the same opportunity map as draw.io XML.
+Create `output/opportunity-assessment/` in the working project before writing files.
+Use this folder for all files this skill produces, unless the user gives another path.
+
+- `output/opportunity-assessment/[PN]-opportunity-assessment.md`: assessment tables, recommendation, questions, and Mermaid `flowchart LR`.
+- `output/opportunity-assessment/[PN]-opportunity-assessment.drawio`: the same opportunity map as draw.io XML.
 - Optional PNG when `drawio` is available: `drawio -x -f png -o <out.png> <in.drawio>`.
 
 Use `[PN]OP###` for opportunities, `[PN]SL###` for proposed solutions, and `[PN]XT###` for tests.

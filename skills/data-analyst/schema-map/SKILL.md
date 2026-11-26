@@ -66,7 +66,10 @@ If neither a database tool nor schema files are available, ask for one. Do not i
 
 ## Output
 
-Write to `output/` in the working project:
+Create `output/schema-map/` in the working project before writing files.
+Use this folder for all files this skill produces, unless the user gives another path.
+
+Write to `output/schema-map/` in the working project:
 
 - `[PN]-schema-model.json`: structure, claims, evidence, SME questions, query cases, and handoff status.
 - `[PN]-schema-map.md`: the assumed schema, confirmed facts, limitations, and effect on intended questions.

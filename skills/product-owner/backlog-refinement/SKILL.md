@@ -33,7 +33,10 @@ This skill reviews existing items and provides proposed edits without requiring 
 
 ## Output
 
-Write `output/[PN]-backlog-refinement.md`.
+Create `output/backlog-refinement/` in the working project before writing files.
+Use this folder for all files this skill produces, unless the user gives another path.
+
+Write `output/backlog-refinement/[PN]-backlog-refinement.md`.
 Include findings, source references, proposed edits, dependencies, and unanswered decisions.
 Do not overwrite the source stories or external backlog unless that update is requested.
 

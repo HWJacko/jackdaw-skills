@@ -28,7 +28,7 @@ Ask for details only when they block the next implementation step. Do not invent
    Resolve this skill's absolute folder path. From the working project root, run:
 
    ```bash
-   python3 <absolute-skill-folder>/scripts/prepare_context.py output/[PN]-schema-model.json output/[PN]-query-context.json
+   python3 <absolute-skill-folder>/scripts/prepare_context.py output/schema-map/[PN]-schema-model.json output/text-to-sql-setup/[PN]-query-context.json
    ```
 
    The helper checks local files only. It makes no database connection.
@@ -62,7 +62,10 @@ Ask for details only when they block the next implementation step. Do not invent
 
 ## Output
 
-Write these files to `output/` in the working project:
+Create `output/text-to-sql-setup/` in the working project before writing files.
+Use this folder for all files this skill produces, unless the user gives another path.
+
+Write these files to `output/text-to-sql-setup/` in the working project:
 
 - `[PN]-query-context.json`: generated physical structure, confirmed meanings, approved joins, and confirmed query cases.
 - `[PN]-query-access.md`: the access rules, their owners, and evidence of enforcement.

@@ -11,7 +11,7 @@ Take the local user stories produced by requirement-construction and create them
 
 ## Input
 
-- `output/[PN]-user-stories.md` from the requirement-construction skill.
+- `output/requirement-construction/[PN]-user-stories.md` from the requirement-construction skill, or an existing Jira copy in `output/requirement-construction-jira/`.
 - JIRA credentials in the environment or `.env` at the **working project root**. Do not store credentials inside the skill folder. Environment variables take precedence over `.env` values.
 
 ```text
@@ -23,8 +23,11 @@ JIRA_PROJECT=<project key>
 
 ## Method
 
-1. Read the local stories file.
-2. From the working project root, run `python3 <absolute-skill-folder>/scripts/create_stories.py output/[PN]-user-stories.md`. Resolve the script path from this skill folder. Keep the working directory at the project root.
+1. Create `output/requirement-construction-jira/` in the working project.
+   On the first run, copy the supplied stories to `output/requirement-construction-jira/[PN]-user-stories.md`.
+   Use the existing Jira copy for later runs. Do not overwrite recorded keys or pending markers with an unlinked source copy.
+   Reconcile source changes by local ID before continuing.
+2. From the working project root, run `python3 <absolute-skill-folder>/scripts/create_stories.py output/requirement-construction-jira/[PN]-user-stories.md`. Resolve the script path from this skill folder. Keep the working directory at the project root.
 3. The script:
    - Reads credentials from the environment and `.env`. If a required value is absent or empty, lists its name and keeps local output.
    - Uses basic auth (email + API token) against `{JIRA_BASE_URL}/rest/api/2/`.
@@ -36,6 +39,9 @@ JIRA_PROJECT=<project key>
 5. Never create stories in a project other than `JIRA_PROJECT`. Never modify or delete existing JIRA issues.
 
 ## Output
+
+Create `output/requirement-construction-jira/` in the working project before writing files.
+Use this folder for all files this skill produces, unless the user gives another path.
 
 - JIRA stories created (when credentials exist), and the local file updated with JIRA keys.
 - A summary table: local ID, JIRA key, story title.

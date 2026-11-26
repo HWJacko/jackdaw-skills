@@ -33,6 +33,9 @@ Raw text: meeting notes, a project brief, a transcript, or a description.
 
 ## Output
 
+Create `output/use-case-extraction/` in the working project before writing files.
+Use this folder for all files this skill produces, unless the user gives another path.
+
 One Markdown document:
 
 - Header: project name, `[PN]`, date.
@@ -41,7 +44,7 @@ One Markdown document:
 - Use case table per EPIC: ID, use case, dependencies.
 - Source problem and outcome references, plus documented trace links. Leave absent references `unknown`.
 
-Write the output to `output/[PN]-use-cases.md` unless the user says otherwise.
+Write the output to `output/use-case-extraction/[PN]-use-cases.md` unless the user says otherwise.
 
 ## Voice
 

@@ -28,7 +28,10 @@ Turn one use case into atomic, testable user stories stored in a local file.
 
 ## Output
 
-Append to (or create) `output/[PN]-user-stories.md`:
+Create `output/requirement-construction/` in the working project before writing files.
+Use this folder for all files this skill produces, unless the user gives another path.
+
+Append to (or create) `output/requirement-construction/[PN]-user-stories.md`:
 
 - Story ID and story sentence.
 - Source use case ID, or `unknown` if the source has no ID.

@@ -34,8 +34,11 @@ Derive `[PN]` from the project. Read [templates.md](templates.md). Preserve all 
 
 ## Output
 
-- `output/[PN]-release-scope.md`: scope, exclusions, dependency checks, release conditions, and Mermaid `flowchart LR`.
-- `output/[PN]-release-scope.drawio`: the same scope map as draw.io XML.
+Create `output/release-scope/` in the working project before writing files.
+Use this folder for all files this skill produces, unless the user gives another path.
+
+- `output/release-scope/[PN]-release-scope.md`: scope, exclusions, dependency checks, release conditions, and Mermaid `flowchart LR`.
+- `output/release-scope/[PN]-release-scope.drawio`: the same scope map as draw.io XML.
 - Optional PNG when `drawio` is available: `drawio -x -f png -o <out.png> <in.drawio>`.
 
 Markdown and draw.io XML are always produced. Optional tooling does not block them.

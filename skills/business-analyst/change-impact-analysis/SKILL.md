@@ -22,11 +22,11 @@ If no change or source material is supplied, ask for it. Do not invent a depende
    Build source → dependent links from explicit source fields and trace-link tables.
    A similar name does not establish a dependency. Keep suggested associations `proposed`.
    Do not invent a missing endpoint record from its ID alone.
-3. Save the source graph as `output/[PN]-trace-links.json`.
+3. Save the source graph as `output/change-impact-analysis/[PN]-trace-links.json`.
    Resolve this skill folder and run the local helper from the working project root:
 
    ```bash
-   python3 <absolute-skill-folder>/scripts/analyse_links.py output/[PN]-trace-links.json <changed-id> [other-changed-ids]
+   python3 <absolute-skill-folder>/scripts/analyse_links.py output/change-impact-analysis/[PN]-trace-links.json <changed-id> [other-changed-ids]
    ```
 
    The helper reads local JSON only. It follows recorded links for required review.
@@ -46,9 +46,12 @@ If no change or source material is supplied, ask for it. Do not invent a depende
 
 ## Output
 
-- `output/[PN]-trace-links.json`: the supplied node and link register with its scope.
-- `output/[PN]-change-impact.md`: review list, reasons, possible review, gaps, actions, and Mermaid `flowchart LR`.
-- `output/[PN]-change-impact.drawio`: the same impact map as draw.io XML.
+Create `output/change-impact-analysis/` in the working project before writing files.
+Use this folder for all files this skill produces, unless the user gives another path.
+
+- `output/change-impact-analysis/[PN]-trace-links.json`: the supplied node and link register with its scope.
+- `output/change-impact-analysis/[PN]-change-impact.md`: review list, reasons, possible review, gaps, actions, and Mermaid `flowchart LR`.
+- `output/change-impact-analysis/[PN]-change-impact.drawio`: the same impact map as draw.io XML.
 - Optional PNG when `drawio` is available: `drawio -x -f png -o <out.png> <in.drawio>`.
 
 Missing PNG tooling must not block the other outputs. Source records remain unchanged unless their update is requested.

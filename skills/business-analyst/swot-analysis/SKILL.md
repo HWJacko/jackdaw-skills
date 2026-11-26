@@ -28,7 +28,10 @@ Raw text: a project brief, strategy document, meeting notes, or a description of
 
 ## Output
 
-One Markdown file `output/[PN]-swot.md`:
+Create `output/swot-analysis/` in the working project before writing files.
+Use this folder for all files this skill produces, unless the user gives another path.
+
+One Markdown file `output/swot-analysis/[PN]-swot.md`:
 
 - Header: subject, date.
 - 2x2 grid as a Markdown table (Strengths / Weaknesses top row, Opportunities / Threats bottom row).

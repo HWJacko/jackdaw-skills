@@ -32,7 +32,10 @@ Derive `[PN]` from the project. Read [templates.md](templates.md). Preserve outc
 
 ## Output
 
-Write `output/[PN]-outcome-review.md`.
+Create `output/outcome-review/` in the working project before writing files.
+Use this folder for all files this skill produces, unless the user gives another path.
+
+Write `output/outcome-review/[PN]-outcome-review.md`.
 Include the results, comparability checks, calculation, interpretation, recommendation, and open decisions.
 Do not change the roadmap or backlog without instruction. Identify the affected source IDs for the next review.
 

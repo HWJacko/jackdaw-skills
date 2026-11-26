@@ -30,7 +30,10 @@ Do not infer business meanings from an unlabelled diagram.
 
 ## Output
 
-Write to `output/`, with basename `[PN]-schema-map-visual`:
+Create `output/schema-map-visual/` in the working project before writing files.
+Use this folder for all files this skill produces, unless the user gives another path.
+
+Write to `output/schema-map-visual/`, with basename `[PN]-schema-map-visual`:
 
 - `.md`: Mermaid `flowchart LR`, a legend, source limits, and the open question IDs.
 - `.drawio`: the same graph as draw.io XML.

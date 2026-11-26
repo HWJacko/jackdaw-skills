@@ -33,7 +33,10 @@ Keep source story IDs and Jira keys unchanged. Do not allocate story IDs to unap
 
 ## Output
 
-Write `output/[PN]-backlog-prioritisation.md`.
+Create `output/backlog-prioritisation/` in the working project before writing files.
+Use this folder for all files this skill produces, unless the user gives another path.
+
+Write `output/backlog-prioritisation/[PN]-backlog-prioritisation.md`.
 Include criteria, source evidence, proposed order, prerequisites, blocked items, ties, and pending decisions.
 When dependencies are complex, include a Mermaid dependency view with the same IDs and a source for each arrow.
 Do not imply that visual position represents an agreed priority or effort estimate.

@@ -33,8 +33,11 @@ Keep outcome IDs and references to their source evidence.
 
 ## Output
 
-- `output/[PN]-outcome-roadmap.md`: roadmap table, measures, review conditions, open questions, and Mermaid `flowchart LR`.
-- `output/[PN]-outcome-roadmap.drawio`: the same roadmap, with Now, Next, and Later lanes.
+Create `output/outcome-roadmap/` in the working project before writing files.
+Use this folder for all files this skill produces, unless the user gives another path.
+
+- `output/outcome-roadmap/[PN]-outcome-roadmap.md`: roadmap table, measures, review conditions, open questions, and Mermaid `flowchart LR`.
+- `output/outcome-roadmap/[PN]-outcome-roadmap.drawio`: the same roadmap, with Now, Next, and Later lanes.
 - Optional PNG when `drawio` is available: `drawio -x -f png -o <out.png> <in.drawio>`.
 
 Always produce Markdown and draw.io XML. Missing PNG tooling does not block them.
